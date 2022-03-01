@@ -98,9 +98,22 @@ function displayPlayers() {
       // className for indPlayerHeader
       indPlayerHeader.innerHTML = cardPlayer.name;
       // innerHTML for header
+      const indPlayerHometown = document.createElement("h3");
+      // header for cardPlayer's homeTown
+      indPlayerHometown.className = "ind-player-hometown";
+      // className for indPlayerHometown
+      indPlayerHometown.innerHTML = cardPlayer.homeTown;
+      // innerHTML for indPlayerHometown
       const indPlayerImg = document.createElement("img");
       // creating image for show page
       indPlayerImg.className = "ind-player-img";
+      // className for indPlayerImg
+      indPlayerImg.src = cardPlayer.img;
+      // source for indPlayerImg
+      indPlayerImg.width = 600;
+      // width for playerImg
+      indPlayerImg.heigth = 600;
+      // height for playerImg
     });
   });
 }
