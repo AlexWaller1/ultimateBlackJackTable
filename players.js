@@ -18,3 +18,23 @@ const playerSubmitBtn = document.getElementById("player-submit-btn");
 
 console.log("------------------------------");
 console.log("-------------------------------");
+
+let players = [];
+
+let count = 0;
+
+let data1 = localStorage.getItem("player-list");
+
+let data2 = JSON.parse(data1);
+
+let data3 = localStorage.getItem("player-count");
+
+let data4 = JSON.parse(data3);
+
+if (data2 != null) {
+  players = data2;
+  count = data4;
+} else {
+  players = [];
+  count = 0;
+}
