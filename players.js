@@ -24,6 +24,8 @@ const playerList = document.getElementById("player-list");
 
 const playerSubmitBtn = document.getElementById("player-submit-btn");
 
+const singlePlayerDiv = document.getElementById("single-player-div");
+
 console.log("------------------------------");
 console.log("-------------------------------");
 
@@ -78,3 +80,24 @@ function displayPlayers() {
     // eventListener for playerHeader
   });
 }
+
+console.log("---------------------------------");
+console.log("-------------------------------");
+
+let onSubmit = e => {
+  if (playerImgInput.value.trim() == "" || playerNameInput.value.trim() == "") {
+    e.preventDefault();
+    playerMsgDiv.innerHTML = "Please Enter Player Name and Image";
+  } else {
+    e.preventDefault();
+    playerMsgDiv.innerHTML = "Thank You For Entering New Player Information";
+    let newPlayer = {
+      name: playerNameInput.value,
+      homeTown: playerHometownInput.value,
+      img: playerImgInput.value,
+      bio: playerBioInput.value
+    };
+  }
+};
+
+playerSubmitBtn.addEventListener("click", onSubmit);
