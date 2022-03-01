@@ -14,6 +14,14 @@ const playerHometownInput = document.getElementById("player-hometown-input");
 
 const playerBioInput = document.getElementById("player-bio-input");
 
+const playerImgInput = document.getElementById("player-img-input");
+
+const playerMsgDiv = document.getElementById("player-msg-div");
+
+const playerListDiv = document.getElementById("player-list-div");
+
+const playerList = document.getElementById("player-list");
+
 const playerSubmitBtn = document.getElementById("player-submit-btn");
 
 console.log("------------------------------");
@@ -42,4 +50,6 @@ if (data2 != null) {
 console.log("-----------------------------");
 console.log("------------------------------");
 
-function displayPlayers() {}
+function displayPlayers() {
+  players.array.forEach(cardPlayer => {});
+}
