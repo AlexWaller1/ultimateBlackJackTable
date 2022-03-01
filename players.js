@@ -38,3 +38,8 @@ if (data2 != null) {
   players = [];
   count = 0;
 }
+
+console.log("-----------------------------");
+console.log("------------------------------");
+
+function displayPlayers() {}
