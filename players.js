@@ -51,5 +51,30 @@ console.log("-----------------------------");
 console.log("------------------------------");
 
 function displayPlayers() {
-  players.array.forEach(cardPlayer => {});
+  players.forEach(cardPlayer => {
+    const playerLi = document.createElement("li");
+    // li which will appended to ul
+    const playerDiv = document.createElement("div");
+    // div which will be appended to div
+    const playerImg = document.createElement("img");
+    // img which will be appended to div
+    playerImg.src = cardPlayer.img;
+    // playerImg's src will be img property of cardPlayer object
+    playerDiv.append(playerImg);
+    // appending playerImg to playerDiv
+    const playerHeader = document.createElement("h3");
+    // h3 which will be added to div
+    playerHeader.innerHTML = cardPlayer.name;
+    // playerHeader's innerHTML will be name property of cardPlayer object
+    playerDiv.append(playerHeader);
+    // appending playerHeader to playerDiv
+    playerLi.append(playerDiv);
+    // appending playerDiv to playerLi
+    playerList.append(playerLi);
+    // appending playerLi to playerList
+
+    //-----------------------------------------
+    //-----------------------------------------
+    // eventListener for playerHeader
+  });
 }
