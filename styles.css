@@ -24,3 +24,8 @@ body {
   font-weight: 600;
   margin-top: 50px;
 }
+
+#player-header {
+  color: darkgray;
+  font-weight: 500;
+}

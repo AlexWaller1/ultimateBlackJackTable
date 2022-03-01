@@ -68,6 +68,8 @@ function displayPlayers() {
     // h3 which will be added to div
     playerHeader.innerHTML = cardPlayer.name;
     // playerHeader's innerHTML will be name property of cardPlayer object
+    playerHeader.id = "player-header";
+    // id for playerHeader
     playerDiv.append(playerHeader);
     // appending playerHeader to playerDiv
     playerLi.append(playerDiv);
@@ -81,22 +83,38 @@ function displayPlayers() {
   });
 }
 
+displayPlayers();
+
 console.log("---------------------------------");
 console.log("-------------------------------");
 
 let onSubmit = e => {
-  if (playerImgInput.value.trim() == "" || playerNameInput.value.trim() == "") {
+  if (playerNameInput.value.trim() == "") {
     e.preventDefault();
     playerMsgDiv.innerHTML = "Please Enter Player Name and Image";
   } else {
     e.preventDefault();
     playerMsgDiv.innerHTML = "Thank You For Entering New Player Information";
     let newPlayer = {
+      id: count,
       name: playerNameInput.value,
       homeTown: playerHometownInput.value,
       img: playerImgInput.value,
       bio: playerBioInput.value
     };
+    players.push(newPlayer);
+    count++;
+    let playersJSON = JSON.stringify(players);
+    let countJSON = JSON.stringify(count);
+    localStorage.setItem("player-list", playersJSON);
+    localStorage.setItem("player-count", countJSON);
+    console.log(localStorage);
+    playerList.innerHTML = "";
+    displayPlayers();
+    playerNameInput.value = "";
+    playerHometownInput.value = "";
+    playerImgInput.value = "";
+    playerBioInput.value = "";
   }
 };
 
