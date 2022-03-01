@@ -56,22 +56,33 @@ function displayPlayers() {
   players.forEach(cardPlayer => {
     const playerLi = document.createElement("li");
     // li which will appended to ul
+    playerLi.className = "player-li-class";
+    // className for playerLi
+    playerLi.display = "inline";
     const playerDiv = document.createElement("div");
     // div which will be appended to div
-    const playerImg = document.createElement("img");
-    // img which will be appended to div
-    playerImg.src = cardPlayer.img;
-    // playerImg's src will be img property of cardPlayer object
-    playerDiv.append(playerImg);
-    // appending playerImg to playerDiv
-    const playerHeader = document.createElement("h3");
+    const playerHeader = document.createElement("button");
     // h3 which will be added to div
     playerHeader.innerHTML = cardPlayer.name;
     // playerHeader's innerHTML will be name property of cardPlayer object
     playerHeader.id = "player-header";
     // id for playerHeader
+
     playerDiv.append(playerHeader);
     // appending playerHeader to playerDiv
+    const playerImg = document.createElement("img");
+    // img which will be appended to div
+    playerImg.src = cardPlayer.img;
+    // playerImg's src will be img property of cardPlayer object
+    playerImg.className = "player-img";
+    // playerImg className is "player-img"
+    playerImg.width = 250;
+    // playerImg width is 500
+    playerImg.height = 250;
+    // playerImg height is 500
+    playerDiv.append(playerImg);
+    // appending playerImg to playerDiv
+
     playerLi.append(playerDiv);
     // appending playerDiv to playerLi
     playerList.append(playerLi);
@@ -80,6 +91,17 @@ function displayPlayers() {
     //-----------------------------------------
     //-----------------------------------------
     // eventListener for playerHeader
+    playerHeader.addEventListener("click", () => {
+      const indPlayerHeader = document.createElement("h1");
+      // creating header for show page
+      indPlayerHeader.className = "ind-player-header";
+      // className for indPlayerHeader
+      indPlayerHeader.innerHTML = cardPlayer.name;
+      // innerHTML for header
+      const indPlayerImg = document.createElement("img");
+      // creating image for show page
+      indPlayerImg.className = "ind-player-img";
+    });
   });
 }
 

@@ -26,6 +26,26 @@ body {
 }
 
 #player-header {
-  color: darkgray;
+  color: white;
   font-weight: 500;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  background-color: black;
+  margin-right: 25px;
+  height: 50px;
+  width: 200px;
+  border-radius: 12px;
+}
+
+#player-header:hover {
+  color: aqua;
+  background-color: rgb(39, 40, 41);
+}
+
+li:hover {
+  color: aqua;
+}
+
+.player-img {
+  margin-bottom: 25px;
 }
