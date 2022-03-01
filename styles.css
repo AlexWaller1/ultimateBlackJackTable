@@ -1,0 +1,17 @@
+body {
+  background-image: url("https://cdnb.artstation.com/p/assets/images/images/046/838/759/large/alex-waller-blackjack-background.jpg?1646109334");
+}
+
+#players-page-header {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(165, 173, 173);
+  text-align: center;
+  margin-top: 140px;
+}
+
+#players-form-div {
+  text-align: center;
+  background-color: silver;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: large;
+}
