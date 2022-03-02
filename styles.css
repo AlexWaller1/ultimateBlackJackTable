@@ -85,3 +85,21 @@ li:hover {
   color: aqua;
   background-color: rgb(39, 40, 41);
 }
+
+.ind-player-header {
+  color: rgb(165, 173, 173);
+}
+
+.edit-submit-btn {
+  color: white;
+  font-weight: 500;
+  margin-bottom: 25px;
+  background-color: black;
+  height: 50px;
+  width: 200px;
+  border-radius: 12px;
+}
+
+#edit-submit-div {
+  text-align: center;
+}

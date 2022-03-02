@@ -26,6 +26,8 @@ const playerSubmitBtn = document.getElementById("player-submit-btn");
 
 const singlePlayerDiv = document.getElementById("single-player-div");
 
+const editSubmitDiv = document.getElementById("edit-submit-div");
+
 console.log("------------------------------");
 console.log("-------------------------------");
 
@@ -151,6 +153,20 @@ function displayPlayers() {
       //---------------------------------------
 
       // eventListener for editPlayerBtn
+      editPlayerBtn.addEventListener("click", () => {
+        playerNameInput.value = cardPlayer.name;
+        playerHometownInput.value = cardPlayer.homeTown;
+        playerImgInput.value = cardPlayer.img;
+        playerBioInput.value = cardPlayer.bio;
+        // input fields filled with object property information
+        const editSubmitBtn = document.createElement("button");
+        // creating new button to submit
+        editSubmitBtn.innerHTML = "Submit Edited Info";
+        // innHTML for editPlayerBtn
+        editSubmitBtn.className = "edit-submit-btn";
+        // className for editSubmitBtn
+        editSubmitDiv.append(editSubmitBtn);
+      });
     });
   });
 }
