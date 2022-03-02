@@ -48,6 +48,7 @@ li:hover {
 
 .player-img {
   margin-bottom: 25px;
+  border-radius: 12%;
 }
 
 #single-player-div {
@@ -88,6 +89,10 @@ li:hover {
 
 .ind-player-header {
   color: rgb(165, 173, 173);
+}
+
+.ind-player-img {
+  border-radius: 12%;
 }
 
 .edit-submit-btn {

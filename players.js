@@ -20,7 +20,7 @@ const playerMsgDiv = document.getElementById("player-msg-div");
 
 let playerListDiv = document.getElementById("player-list-div");
 
-const playerList = document.getElementById("player-list");
+let playerList = document.getElementById("player-list");
 
 const playerSubmitBtn = document.getElementById("player-submit-btn");
 
@@ -221,7 +221,9 @@ function displayPlayers() {
         let newJSON = JSON.stringify(players);
         localStorage.setItem("player-list", newJSON);
         singlePlayerDiv.innerHTML = "";
-        displayPlayers();
+        //------------------------------------------------------
+        playerListDiv = document.getElementById("player-list-div");
+        playerListDiv = document.getElementById("player-list");
       });
     });
   });
