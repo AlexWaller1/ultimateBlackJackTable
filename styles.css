@@ -100,6 +100,19 @@ li:hover {
   border-radius: 12px;
 }
 
+.edit-submit-btn:hover {
+  color: aqua;
+  background-color: rgb(39, 40, 41);
+}
+
 #edit-submit-div {
   text-align: center;
+}
+
+.ind-player-hometown {
+  color: rgb(165, 173, 173);
+}
+
+.ind-player-bio {
+  color: rgb(165, 173, 173);
 }

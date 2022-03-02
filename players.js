@@ -18,7 +18,7 @@ const playerImgInput = document.getElementById("player-img-input");
 
 const playerMsgDiv = document.getElementById("player-msg-div");
 
-const playerListDiv = document.getElementById("player-list-div");
+let playerListDiv = document.getElementById("player-list-div");
 
 const playerList = document.getElementById("player-list");
 
@@ -166,6 +166,55 @@ function displayPlayers() {
         editSubmitBtn.className = "edit-submit-btn";
         // className for editSubmitBtn
         editSubmitDiv.append(editSubmitBtn);
+        // appending editSubmitBtn to div
+
+        editSubmitBtn.addEventListener("click", () => {
+          // extracting array from localStorage
+          let data5 = localStorage.getItem("player-list");
+          let data6 = JSON.parse(data5);
+          let index = cardPlayer.id;
+          // modifying info
+          data6[index].name = playerNameInput.value;
+          data6[index].homeTown = playerHometownInput.value;
+          data6[index].img = playerImgInput.value;
+          data6[index].bio = playerBioInput.value;
+          // modifying localStorage
+          let data7 = JSON.stringify(data6);
+          localStorage.setItem("player-list", data7);
+          // changing info on page
+          indPlayerHeader.innerHTML = playerNameInput.value;
+          indPlayerHometown.innerHTML = playerHometownInput.value;
+          indPlayerImg.src = playerImgInput.value;
+          indPlayerBio.innerHTML = playerBioInput.value;
+          // clear input fields and editSubmitDiv
+          playerNameInput.value = "";
+          playerHometownInput.value = "";
+          playerImgInput.value = "";
+          playerBioInput.value = "";
+          editSubmitDiv.innerHTML = "";
+        });
+      });
+      //---------------------------------------------------
+      //---------------------------------------------------
+      // adding eventListener for delete button
+      deletePlayerBtn.addEventListener("click", () => {
+        let data21 = localStorage.getItem("player-list");
+        players = JSON.parse(data21);
+        // converting localStorage JSON array to a JavaScript array
+        let target = cardPlayer.id;
+        // getting id/array index of the current player
+        players.splice(target, 1);
+        // deleting that player from the array;
+        for (let i = 0; i < players.length; i++) {
+          if (players[i].id > target) {
+            players[i].id = players[i].id - 1;
+          }
+        }
+        console.log(players);
+        localStorage.removeItem("player-list");
+        let newJSON = JSON.stringify(players);
+        localStorage.setItem("player-list", newJSON);
+        singlePlayerDiv.innerHTML = "";
       });
     });
   });
