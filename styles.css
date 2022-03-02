@@ -49,3 +49,39 @@ li:hover {
 .player-img {
   margin-bottom: 25px;
 }
+
+#single-player-div {
+  text-align: center;
+}
+
+.edit-player-btn {
+  color: white;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-right: 25px;
+  background-color: black;
+  height: 50px;
+  width: 125px;
+  border-radius: 12px;
+}
+
+.edit-player-btn:hover {
+  color: aqua;
+  background-color: rgb(39, 40, 41);
+}
+
+.delete-player-btn {
+  color: white;
+  font-weight: 500;
+  margin-top: 25px;
+  margin-right: 25px;
+  background-color: black;
+  height: 50px;
+  width: 125px;
+  border-radius: 12px;
+}
+
+.delete-player-btn:hover {
+  color: aqua;
+  background-color: rgb(39, 40, 41);
+}

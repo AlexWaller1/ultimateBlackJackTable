@@ -114,6 +114,43 @@ function displayPlayers() {
       // width for playerImg
       indPlayerImg.heigth = 600;
       // height for playerImg
+      const indPlayerBio = document.createElement("h4");
+      //   // making header for the bio
+      indPlayerBio.className = "ind-player-bio";
+      //   // making a class for the player bio
+      indPlayerBio.innerHTML = cardPlayer.bio;
+      //   // adding innerHTML for player bio
+      playerListDiv.innerHTML = "";
+      // clearing out the playersListDiv
+      singlePlayerDiv.append(indPlayerHeader);
+      // appending name header to div
+      singlePlayerDiv.append(indPlayerHometown);
+      // appending hometown header to div
+      singlePlayerDiv.append(indPlayerImg);
+      // appending player image to div
+      singlePlayerDiv.append(indPlayerBio);
+      // appending player bio to div
+      const editPlayerBtn = document.createElement("button");
+      // creating edit player button
+      editPlayerBtn.innerHTML = "Edit";
+      // innerHTML for edit button
+      editPlayerBtn.className = "edit-player-btn";
+      // edit player button className is "edit-player-btn"
+      const deletePlayerBtn = document.createElement("button");
+      // creating a delete player button;
+      deletePlayerBtn.innerHTML = "Delete";
+      // innerHTML for delete button
+      deletePlayerBtn.className = "delete-player-btn";
+      // className for deletePlayerBtn
+      singlePlayerDiv.append(editPlayerBtn);
+      // appending editPlayerBtn to div
+      singlePlayerDiv.append(deletePlayerBtn);
+      // appending deletePlayerBtn to div
+
+      //----------------------------------------
+      //---------------------------------------
+
+      // eventListener for editPlayerBtn
     });
   });
 }
