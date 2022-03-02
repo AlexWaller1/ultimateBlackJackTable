@@ -211,10 +211,17 @@ function displayPlayers() {
           }
         }
         console.log(players);
+
+        localStorage.removeItem("player-count");
+        count = players.length;
+        let jsonCount2 = JSON.stringify(count);
+        localStorage.setItem("player-count", jsonCount2);
+
         localStorage.removeItem("player-list");
         let newJSON = JSON.stringify(players);
         localStorage.setItem("player-list", newJSON);
         singlePlayerDiv.innerHTML = "";
+        displayPlayers();
       });
     });
   });
