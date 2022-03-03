@@ -121,3 +121,11 @@ li:hover {
 .ind-player-bio {
   color: rgb(165, 173, 173);
 }
+
+#welcome-div {
+  text-align: center;
+}
+
+#welcome-div-header {
+  color: rgb(165, 173, 173);
+}
