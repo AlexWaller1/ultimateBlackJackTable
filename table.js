@@ -80,8 +80,8 @@ const diamonds = [
     backImg: ""
   },
   {
-    name: "Ace of Diamonds",
-    value: "",
+    name: "Ace",
+    value: 11,
     frontImg: "",
     backImg: ""
   }
@@ -161,8 +161,8 @@ const clubs = [
     backImg: ""
   },
   {
-    name: "Ace of Clubs",
-    value: "",
+    name: "Ace",
+    value: 11,
     frontImg: "",
     backImg: ""
   }
@@ -242,8 +242,8 @@ const hearts = [
     backImg: ""
   },
   {
-    name: "Ace of Hearts",
-    value: "",
+    name: "Ace",
+    value: 11,
     frontImg: "",
     backImg: ""
   }
@@ -323,8 +323,8 @@ const spades = [
     backImg: ""
   },
   {
-    name: "Ace of Spades",
-    value: 10,
+    name: "Ace",
+    value: 11,
     frontImg: "",
     backImg: ""
   }
@@ -349,10 +349,6 @@ let shuffleDeck = array => {
   }
   return array;
 };
-
-let shuffledDeck2 = shuffleDeck(fullDeck);
-
-console.log(shuffledDeck2);
 
 console.log("---------------------------------------------------");
 console.log("------------------------------------------------");
@@ -423,6 +419,16 @@ const playerDiv = document.getElementById("player-div");
 
 const playerImgList = document.getElementById("player-img-list");
 
+const hitBtn = document.createElement("button");
+hitBtn.id = "hit-btn";
+hitBtn.className = "btn btn-dark";
+hitBtn.innerHTML = "HIT";
+
+const holdBtn = document.createElement("button");
+holdBtn.id = "hold-btn";
+holdBtn.className = "btn btn-dark";
+holdBtn.innerHTML = "HOLD";
+
 let playerCount = 0;
 
 let playerFirstCard = 0;
@@ -430,6 +436,8 @@ let playerFirstCard = 0;
 let playerTurn = 0;
 
 let playerCards = [];
+
+let aceValue = 0;
 
 //.............................................................
 //.......................................................
@@ -475,7 +483,31 @@ moneyBetBtn.addEventListener("click", e => {
   moneyBetInput.value = "";
 });
 
+//-----------------------------------------------
+//-------------------------------------------------
+
 // eventListener
 gamePlayBtn.addEventListener("click", () => {
   console.log("button clicked");
+
+  let gameDeck = shuffleDeck(fullDeck);
+
+  let i = 0;
+
+  for (; i < 4; i++) {
+    if (i % 2 == 0) {
+      let playerCardHeader = document.createElement("h3");
+      playerCardHeader.className = "player-card-header";
+      playerCardHeader.innerHTML = `${gameDeck[i].name}`;
+      playerImgList.append(playerCardHeader);
+      playerCount = playerCount + gameDeck[i].value;
+    }
+    if (i == 1) {
+    }
+    if (i == 3) {
+    }
+  }
 });
+
+console.log(0 % 2 == 0);
+// true
