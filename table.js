@@ -393,23 +393,43 @@ moneyBetBtn.className = "btn btn-dark";
 let moneyBet = 0;
 
 // elements and variables in gameplay div
-const gamePlayDiv = document.getElementById("gameplay-div");
+const gamePlayDiv = document.getElementById("game-play-div");
 
 const gamePlayHeader = document.createElement("h2");
 gamePlayHeader.id = "game-play-header";
 gamePlayHeader.innerHTML = "Let's Play Blackjack!";
 
+const gamePlayBetHeader = document.createElement("h3");
+gamePlayBetHeader.id = "game-play-bet-header";
+
+const gamePlayBtn = document.createElement("button");
+gamePlayBtn.id = "game-play-btn";
+gamePlayBtn.innerHTML = "Start Playing";
+gamePlayBtn.className = "btn btn-dark";
+
 const dealerDiv = document.getElementById("dealer-div");
+
+const dealerImgList = document.getElementById("dealer-img-list");
 
 let dealerCount = 0;
 
 let dealerFirstCard = 0;
 
+let dealerTurn = 0;
+
+let dealerCards = [];
+
 const playerDiv = document.getElementById("player-div");
+
+const playerImgList = document.getElementById("player-img-list");
 
 let playerCount = 0;
 
 let playerFirstCard = 0;
+
+let playerTurn = 0;
+
+let playerCards = [];
 
 //.............................................................
 //.......................................................
@@ -436,7 +456,26 @@ moneyBetBtn.addEventListener("click", e => {
   }
   if (isNaN(moneyBetInput.value) == true) {
     moneyBetMsg.innerHTML = "Input Must Be A  Number";
+  } else {
+    moneyBet = parseFloat(moneyBetInput.value);
+    bettingDiv.remove(moneyBetHeader);
+    bettingDiv.remove(moneyBetMsg);
+    bettingDiv.remove(moneyBetLabel);
+    bettingDiv.remove(moneyBetInput);
+    bettingDiv.remove(moneyBetBtn);
+    //---------------------------------------
+    gamePlayDiv.append(gamePlayHeader);
+    gamePlayDiv.append(gamePlayBetHeader);
+    gamePlayBetHeader.innerHTML = `Money Bet: ${moneyBet}`;
+    gamePlayDiv.append(gamePlayBtn);
   }
+  //------------------------------------------
 
+  //-------------------------------------
   moneyBetInput.value = "";
+});
+
+// eventListener
+gamePlayBtn.addEventListener("click", () => {
+  console.log("button clicked");
 });
