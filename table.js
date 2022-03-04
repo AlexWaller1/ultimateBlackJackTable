@@ -403,6 +403,8 @@ gamePlayBtn.id = "game-play-btn";
 gamePlayBtn.innerHTML = "Start Playing";
 gamePlayBtn.className = "btn btn-dark";
 
+// elements and variables in dealerDiv
+
 const dealerDiv = document.getElementById("dealer-div");
 
 const dealerImgList = document.getElementById("dealer-img-list");
@@ -414,6 +416,8 @@ let dealerFirstCard = 0;
 let dealerTurn = 0;
 
 let dealerCards = [];
+
+// elements and variables in playerDiv
 
 const playerDiv = document.getElementById("player-div");
 
@@ -436,6 +440,24 @@ let playerFirstCard = 0;
 let playerTurn = 0;
 
 let playerCards = [];
+
+// elements and variables to deal with the ace
+
+const aceDiv = document.getElementById("ace-div");
+
+const aceHeader = document.createElement("h2");
+aceHeader.id = "ace-header";
+aceHeader.innerHTML = "Do You Want Ace to Equal 1 or 11?";
+
+const oneBtn = document.createElement("button");
+oneBtn.id = "one-btn";
+oneBtn.className = "btn btn-dark";
+oneBtn.innerHTML = "1";
+
+const elevenBtn = document.createElement("button");
+elevenBtn.id = "eleven-btn";
+elevenBtn.className = "btn btn-dark";
+elevenBtn.innerHTML = "11";
 
 let aceValue = 0;
 
