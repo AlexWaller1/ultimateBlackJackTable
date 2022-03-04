@@ -426,16 +426,6 @@ const playerDiv = document.getElementById("player-div");
 
 const playerImgList = document.getElementById("player-img-list");
 
-const hitBtn = document.createElement("button");
-hitBtn.id = "hit-btn";
-hitBtn.className = "btn btn-dark";
-hitBtn.innerHTML = "HIT";
-
-const holdBtn = document.createElement("button");
-holdBtn.id = "hold-btn";
-holdBtn.className = "btn btn-dark";
-holdBtn.innerHTML = "HOLD";
-
 const playerCountHeader = document.createElement("h3");
 playerCountHeader.id = "player-count-header";
 
@@ -446,6 +436,24 @@ let playerFirstCard = 0;
 let playerTurn = 0;
 
 let playerCards = [];
+
+// elements and variables in hitHoldDiv
+
+const hitHoldDiv = document.getElementById("hit-hold-div");
+
+const hitHoldHeader = document.createElement("h3");
+hitHoldHeader.id = "hit-hold-header";
+hitHoldHeader.innerHTML = "HIT or HOLD";
+
+const hitBtn = document.createElement("button");
+hitBtn.id = "hit-btn";
+hitBtn.className = "btn btn-dark";
+hitBtn.innerHTML = "HIT";
+
+const holdBtn = document.createElement("button");
+holdBtn.id = "hold-btn";
+holdBtn.className = "btn btn-dark";
+holdBtn.innerHTML = "HOLD";
 
 // elements and variables to deal with the ace
 
