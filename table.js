@@ -529,13 +529,26 @@ gamePlayBtn.addEventListener("click", () => {
       playerCardHeader.innerHTML = `${gameDeck[i].name}`;
       playerImgList.append(playerCardHeader);
       playerCount = playerCount + gameDeck[i].value;
+      playerCards.push(gameDeck[i].name);
+      gameDeck.splice(i, 1);
     }
     if (i == 1) {
+      let dealerCardHeader1 = document.createElement("h3");
+      dealerCardHeader1.className = "dealer-card-header";
+      dealerCardHeader1.innerHTML = `${gameDeck[i].name}`;
+      dealerImgList.append(dealerCardHeader1);
+      dealerCount = dealerCount + gameDeck[i].value;
+      dealerCards.push(gameDeck[i].name);
+      gameDeck.splice(i, 1);
     }
     if (i == 3) {
+      let dealerCardHeader2 = document.createElement("h3");
+      dealerCardHeader2.className = "dealer-card-header";
+      dealerCardHeader2.innerHTML = `${gameDeck[i].name}`;
+      dealerImgList.append(dealerCardHeader2);
+      dealerCount = dealerCount + gameDeck[i].value;
+      dealerCards.push(gameDeck[i].name);
+      gameDeck.splice(i, 1);
     }
   }
 });
-
-console.log(0 % 2 == 0);
-// true
