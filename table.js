@@ -373,6 +373,10 @@ const moneyBetHeader = document.createElement("h2");
 moneyBetHeader.id = "money-bet-header";
 moneyBetHeader.innerHTML = "How Much Do You Want To Bet?";
 
+const moneyBetMsg = document.createElement("div");
+moneyBetMsg.className = "msg";
+moneyBetMsg.id = "money-bet-msg";
+
 const moneyBetLabel = document.createElement("label");
 moneyBetLabel.id = "money-bet-label";
 moneyBetLabel.innerHTML = "Money Bet:";
@@ -381,11 +385,58 @@ const moneyBetInput = document.createElement("input");
 moneyBetInput.id = "money-bet-input";
 moneyBetInput.placeholder = "Money Bet...";
 
+const moneyBetBtn = document.createElement("button");
+moneyBetBtn.id = "money-bet-btn";
+moneyBetBtn.innerHTML = "Submit Your Bet";
+moneyBetBtn.className = "btn btn-dark";
+
 let moneyBet = 0;
 
 // elements and variables in gameplay div
 const gamePlayDiv = document.getElementById("gameplay-div");
 
+const gamePlayHeader = document.createElement("h2");
+gamePlayHeader.id = "game-play-header";
+gamePlayHeader.innerHTML = "Let's Play Blackjack!";
+
 const dealerDiv = document.getElementById("dealer-div");
 
+let dealerCount = 0;
+
+let dealerFirstCard = 0;
+
 const playerDiv = document.getElementById("player-div");
+
+let playerCount = 0;
+
+let playerFirstCard = 0;
+
+//.............................................................
+//.......................................................
+
+// eventListener for startGameBtn
+startGameBtn.addEventListener("click", () => {
+  // remove elements from welcomeDiv
+  welcomeDiv.remove(welcomeDivHeader);
+  welcomeDiv.remove(startGameBtn);
+  // append elements to bettingDiv
+  bettingDiv.append(moneyBetHeader);
+  bettingDiv.append(moneyBetMsg);
+  bettingDiv.append(moneyBetLabel);
+  bettingDiv.append(moneyBetInput);
+  bettingDiv.append(moneyBetBtn);
+});
+
+// eventListener for moneyBetBtn
+moneyBetBtn.addEventListener("click", e => {
+  e.preventDefault();
+  console.log("button clicked");
+  if (moneyBetInput.value.trim() == "") {
+    moneyBetMsg.innerHTML = "Please Enter Amount";
+  }
+  if (isNaN(moneyBetInput.value) == true) {
+    moneyBetMsg.innerHTML = "Input Must Be A  Number";
+  }
+
+  moneyBetInput.value = "";
+});

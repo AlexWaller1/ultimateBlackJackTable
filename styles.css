@@ -129,3 +129,21 @@ li:hover {
 #welcome-div-header {
   color: rgb(165, 173, 173);
 }
+
+#betting-div {
+  text-align: center;
+}
+
+#money-bet-header {
+  color: rgb(165, 173, 173);
+}
+
+#money-bet-label {
+  color: rgb(165, 173, 173);
+  font-size: large;
+  margin-right: 10px;
+}
+
+#money-bet-input {
+  margin-right: 10px;
+}
