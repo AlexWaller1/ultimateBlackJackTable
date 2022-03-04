@@ -409,6 +409,9 @@ const dealerDiv = document.getElementById("dealer-div");
 
 const dealerImgList = document.getElementById("dealer-img-list");
 
+const dealerCountHeader = document.createElement("h3");
+dealerCountHeader.id = "dealer-count-header";
+
 let dealerCount = 0;
 
 let dealerFirstCard = 0;
@@ -432,6 +435,9 @@ const holdBtn = document.createElement("button");
 holdBtn.id = "hold-btn";
 holdBtn.className = "btn btn-dark";
 holdBtn.innerHTML = "HOLD";
+
+const playerCountHeader = document.createElement("h3");
+playerCountHeader.id = "player-count-header";
 
 let playerCount = 0;
 
