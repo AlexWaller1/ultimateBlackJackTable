@@ -403,6 +403,12 @@ gamePlayBtn.id = "game-play-btn";
 gamePlayBtn.innerHTML = "Start Playing";
 gamePlayBtn.className = "btn btn-dark";
 
+let gameDeck = [];
+
+// elements and variables in gamePlayHeadersDiv
+
+const gamePlayHeadersDiv = document.getElementById("game-play-headers-div");
+
 // elements and variables in dealerDiv
 
 const dealerDiv = document.getElementById("dealer-div");
@@ -426,16 +432,20 @@ const playerDiv = document.getElementById("player-div");
 
 const playerImgList = document.getElementById("player-img-list");
 
-const playerCountHeader = document.createElement("h3");
-playerCountHeader.id = "player-count-header";
-
-let playerCount = 0;
-
 let playerFirstCard = 0;
 
 let playerTurn = 0;
 
 let playerCards = [];
+
+// elements and variables in playerCountDiv
+
+const playerCountDiv = document.getElementById("player-count-div");
+
+const playerCountHeader = document.createElement("h3");
+playerCountHeader.id = "player-count-header";
+
+let playerCount = 0;
 
 // elements and variables in hitHoldDiv
 
@@ -474,6 +484,20 @@ elevenBtn.className = "btn btn-dark";
 elevenBtn.innerHTML = "11";
 
 let aceValue = 0;
+
+let aceArray = ["first", "second", "third", "fourth"];
+
+// elements and variables for winning hands
+
+const winngingDiv = document.getElementById("winning-div");
+
+const winningDivHeader1 = document.createElement("h3");
+winningDivHeader1.id = "winning-div-header-1";
+winningDivHeader1.innerHTML = "Congratulations! You Win 1.5x Your Bet!";
+
+const winningDivHeader2 = document.createElement("h3");
+winningDivHeader2.id = "winning-div-header-2";
+winningDivHeader2.innerHTML = "Congratulations! You Win 2x Your Bet!";
 
 //.............................................................
 //.......................................................
@@ -526,7 +550,7 @@ moneyBetBtn.addEventListener("click", e => {
 gamePlayBtn.addEventListener("click", () => {
   console.log("button clicked");
 
-  let gameDeck = shuffleDeck(fullDeck);
+  gameDeck = shuffleDeck(fullDeck);
 
   let i = 0;
 
@@ -559,4 +583,11 @@ gamePlayBtn.addEventListener("click", () => {
       gameDeck.splice(i, 1);
     }
   }
+
+  playerCountDiv.append(playerCountHeader);
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+
+  if (playerCount == 21) {
+  }
+  console.log(gameDeck.length);
 });
