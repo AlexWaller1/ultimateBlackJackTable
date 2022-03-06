@@ -478,12 +478,13 @@ holdBtn.className = "btn btn-dark";
 holdBtn.innerHTML = "HOLD";
 
 // elements and variables to deal with the ace
+//-----------------------------------------------
 
 const aceDiv = document.getElementById("ace-div");
 
 const aceHeader = document.createElement("h2");
 aceHeader.id = "ace-header";
-aceHeader.innerHTML = "Do You Want Ace to Equal 1 or 11?";
+aceHeader.innerHTML = "Do You Want Your First Ace to Equal 1 or 11?";
 
 const oneBtn = document.createElement("button");
 oneBtn.id = "one-btn";
@@ -495,9 +496,63 @@ elevenBtn.id = "eleven-btn";
 elevenBtn.className = "btn btn-dark";
 elevenBtn.innerHTML = "11";
 
+const aceHeader2 = document.createElement("h2");
+aceHeader2.id = "ace-header-2";
+aceHeader2.innerHTML = "Do You Want Your Second Ace to Equal 1 or 11?";
+
+const oneBtn2 = document.createElement("button");
+oneBtn2.id = "one-btn-2";
+oneBtn2.className = "btn btn-dark";
+oneBtn2.innerHTML = "1";
+
+const elevenBtn2 = document.createElement("button");
+elevenBtn2.id = "eleven-btn-2";
+elevenBtn2.className = "btn btn-dark";
+elevenBtn2.innerHTML = "11";
+
+const aceHeader3 = document.createElement("h2");
+aceHeader3.id = "ace-header-3";
+aceHeader3.innerHTML = "Do You Want Your Third Ace to Equal 1 or 11?";
+
+const oneBtn3 = document.createElement("button");
+oneBtn3.id = "one-btn-3";
+oneBtn3.className = "btn btn-dark";
+oneBtn.innerHTML = "1";
+
+const elevenBtn3 = document.createElement("button");
+elevenBtn3.id = "eleven-btn-3";
+elevenBtn3.className = "btn btn-dark";
+elevenBtn3.innerHTML = "11";
+
+const aceHeader4 = document.createElement("h2");
+aceHeader4.id = "ace-header-4";
+aceHeader4.innerHTML = "Do You Want Your Fourth Ace to Equal 1 or 11?";
+
+const oneBtn4 = document.createElement("button");
+oneBtn4.id = "one-btn-4";
+oneBtn4.className = "btn btn-dark";
+oneBtn4.innerHTML = "1";
+
+const elevenBtn4 = document.createElement("button");
+elevenBtn4.id = "eleven-btn-4";
+elevenBtn4.className = "btn btn-dark";
+elevenBtn4.innerHTML = "4";
+
 let aceValue = 0;
 
+let firstAceIndex = 0;
+
+let secondAceIndex = 0;
+
+let thirdAceIndex = 0;
+
+let fourthAceIndex = 0;
+
+let aceCount = 0;
+
 let aceArray = ["first", "second", "third", "fourth"];
+
+//----------------------------------------------------
 
 // elements and variables for winning hands
 
@@ -640,6 +695,8 @@ hitBtn.addEventListener("click", () => {
   newCardHeader.innerHTML = `${newCard2.name}`;
   playerImgList.append(newCardHeader);
   //-----------------------------------------------------
+
+  //-----------------------------------------------------
   if (playerCount == 21) {
     winningDiv.append(winningDivHeader1);
     moneyBet = moneyBet * 2;
@@ -650,13 +707,27 @@ hitBtn.addEventListener("click", () => {
     hitHoldDiv.remove(holdBtn);
     winningDiv.append(finishGameBtn);
   }
-  if (playerCount > 21) {
+  if (playerCount > 21 && !playerCards.includes("Ace")) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.append(losingDivHeader);
     hitHoldDiv.remove(hitHoldHeader);
     hitHoldDiv.remove(hitBtn);
     hitHoldDiv.remove(holdBtn);
     losingDiv.append(finishGameBtn);
+  }
+  //=============================================
+  //==============================================
+  //============================================
+  //===============================================
+  if (playerCards.includes("Ace")) {
+    let j = 0;
+    for (; j < playerCards.length; j++) {
+      if (playerCards[j] == "Ace") {
+        aceDiv.append(aceHeader);
+        aceDiv.append(oneBtn);
+        aceDiv.append(elevenBtn);
+      }
+    }
   }
 });
 
@@ -680,6 +751,9 @@ holdBtn.addEventListener("click", () => {
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
   }
+  hitHoldDiv.remove(hitBtn);
+  hitHoldDiv.remove(holdBtn);
+  winningDiv.append(finishGameBtn);
 });
 
 //-------------------------------------------
