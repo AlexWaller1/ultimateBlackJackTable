@@ -413,10 +413,16 @@ const gamePlayHeadersDiv = document.getElementById("game-play-headers-div");
 
 const dealerDiv = document.getElementById("dealer-div");
 
+const dealerHandDiv = document.getElementById("dealer-hand-div");
+
 const dealerImgList = document.getElementById("dealer-img-list");
 
 const dealerCountHeader = document.createElement("h3");
 dealerCountHeader.id = "dealer-count-header";
+
+const dealerHandHeader = document.createElement("h3");
+dealerHandHeader.id = "dealer-hand-header";
+dealerHandHeader.innerHTML = "Dealer Hand:";
 
 let dealerCount = 0;
 
@@ -430,7 +436,13 @@ let dealerCards = [];
 
 const playerDiv = document.getElementById("player-div");
 
+const playerHandDiv = document.getElementById("player-hand-div");
+
 const playerImgList = document.getElementById("player-img-list");
+
+const playerHandHeader = document.createElement("h3");
+playerHandHeader.id = "player-hand-header";
+playerHandHeader.innerHTML = "Player Hand:";
 
 let playerFirstCard = 0;
 
@@ -489,15 +501,19 @@ let aceArray = ["first", "second", "third", "fourth"];
 
 // elements and variables for winning hands
 
-const winngingDiv = document.getElementById("winning-div");
+const winningDiv = document.getElementById("winning-div");
 
 const winningDivHeader1 = document.createElement("h3");
 winningDivHeader1.id = "winning-div-header-1";
-winningDivHeader1.innerHTML = "Congratulations! You Win 1.5x Your Bet!";
 
 const winningDivHeader2 = document.createElement("h3");
 winningDivHeader2.id = "winning-div-header-2";
-winningDivHeader2.innerHTML = "Congratulations! You Win 2x Your Bet!";
+
+// elements and variables for losing hands
+
+const losingDiv = document.getElementById("losingDiv");
+
+const losingDivHeader = document.createElement("h3");
 
 //.............................................................
 //.......................................................
@@ -532,10 +548,10 @@ moneyBetBtn.addEventListener("click", e => {
     bettingDiv.remove(moneyBetInput);
     bettingDiv.remove(moneyBetBtn);
     //---------------------------------------
-    gamePlayDiv.append(gamePlayHeader);
-    gamePlayDiv.append(gamePlayBetHeader);
+    gamePlayHeadersDiv.append(gamePlayHeader);
+    gamePlayHeadersDiv.append(gamePlayBetHeader);
     gamePlayBetHeader.innerHTML = `Money Bet: ${moneyBet}`;
-    gamePlayDiv.append(gamePlayBtn);
+    gamePlayHeadersDiv.append(gamePlayBtn);
   }
   //------------------------------------------
 
@@ -556,6 +572,7 @@ gamePlayBtn.addEventListener("click", () => {
 
   for (; i < 4; i++) {
     if (i % 2 == 0) {
+      playerHandDiv.append(playerHandHeader);
       let playerCardHeader = document.createElement("h3");
       playerCardHeader.className = "player-card-header";
       playerCardHeader.innerHTML = `${gameDeck[i].name}`;
@@ -565,6 +582,7 @@ gamePlayBtn.addEventListener("click", () => {
       gameDeck.splice(i, 1);
     }
     if (i == 1) {
+      dealerHandDiv.append(dealerHandHeader);
       let dealerCardHeader1 = document.createElement("h3");
       dealerCardHeader1.className = "dealer-card-header";
       dealerCardHeader1.innerHTML = `${gameDeck[i].name}`;
@@ -584,10 +602,43 @@ gamePlayBtn.addEventListener("click", () => {
     }
   }
 
+  gamePlayHeadersDiv.remove(gamePlayBtn);
+
   playerCountDiv.append(playerCountHeader);
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21) {
   }
+
+  hitHoldDiv.append(hitHoldHeader);
+  hitHoldDiv.append(hitBtn);
+  hitHoldDiv.append(holdBtn);
+
   console.log(gameDeck.length);
 });
+
+// eventListener for hitBtn
+
+hitBtn.addEventListener("click", () => {
+  // if(playerCards.includes("Ace")){}
+
+  //--------------------------------------------
+  let newCard2 = gameDeck[0];
+  playerCount = playerCount + newCard2.value;
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+  playerCards.push(newCard2.name);
+  gameDeck.splice(0, 1);
+  //-----------------------------------------------------
+  if (playerCount == 21) {
+    winningDiv.append(winningDivHeader2);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congatulations! You Win $${moneyBet}!`;
+    winningDiv.append(winningDivHeader1);
+  }
+  if (playerCount > 21) {
+  }
+});
+
+// eventListener for holdBtn
+
+holdBtn.addEventListener("click", () => {});
