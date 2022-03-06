@@ -641,7 +641,7 @@ hitBtn.addEventListener("click", () => {
   playerImgList.append(newCardHeader);
   //-----------------------------------------------------
   if (playerCount == 21) {
-    winningDiv.append(winningDivHeader2);
+    winningDiv.append(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
     winningDiv.append(winningDivHeader1);
@@ -662,7 +662,25 @@ hitBtn.addEventListener("click", () => {
 
 // eventListener for holdBtn
 
-holdBtn.addEventListener("click", () => {});
+holdBtn.addEventListener("click", () => {
+  let i = 0;
+  for (; dealerCount < 17; i++) {
+    dealerCount = dealerCount + gameDeck[i].value;
+    let newDealerCard = document.createElement("h3");
+    newDealerCard.innerHTML = `${gameDeck[i].name}`;
+    dealerImgList.append(newDealerCard);
+    dealerCards.push(gameDeck[i].name);
+  }
+  if (dealerCount > playerCount && dealerCount <= 21) {
+    losingDivHeader.innerHTML = `The House Wins ${moneyBet}`;
+    losingDiv.append(losingDivHeader);
+  }
+  if (dealerCount > 21 || dealerCount < playerCount) {
+    winningDiv.append(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+  }
+});
 
 //-------------------------------------------
 
