@@ -511,7 +511,7 @@ winningDivHeader2.id = "winning-div-header-2";
 
 // elements and variables for losing hands
 
-const losingDiv = document.getElementById("losingDiv");
+const losingDiv = document.getElementById("losing-div");
 
 const losingDivHeader = document.createElement("h3");
 
@@ -628,14 +628,20 @@ hitBtn.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
   playerCards.push(newCard2.name);
   gameDeck.splice(0, 1);
+  //------------------------------------
+  let newCardHeader = document.createElement("h3");
+  newCardHeader.innerHTML = `${newCard2.name}`;
+  playerImgList.append(newCardHeader);
   //-----------------------------------------------------
   if (playerCount == 21) {
     winningDiv.append(winningDivHeader2);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congatulations! You Win $${moneyBet}!`;
+    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
     winningDiv.append(winningDivHeader1);
   }
   if (playerCount > 21) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.append(losingDivHeader);
   }
 });
 
