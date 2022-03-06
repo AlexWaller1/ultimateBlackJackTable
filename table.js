@@ -515,6 +515,13 @@ const losingDiv = document.getElementById("losing-div");
 
 const losingDivHeader = document.createElement("h3");
 
+// elements and variables for finishing games
+
+const finishGameBtn = document.createElement("button");
+finishGameBtn.id = "finish-game-btn";
+finishGameBtn.className = "btn btn-dark";
+finishGameBtn.innerHTML = "Finish Game";
+
 //.............................................................
 //.......................................................
 
@@ -638,13 +645,27 @@ hitBtn.addEventListener("click", () => {
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
     winningDiv.append(winningDivHeader1);
+    hitHoldDiv.remove(hitHoldHeader);
+    hitHoldDiv.remove(hitBtn);
+    hitHoldDiv.remove(holdBtn);
+    winningDiv.append(finishGameBtn);
   }
   if (playerCount > 21) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.append(losingDivHeader);
+    hitHoldDiv.remove(hitHoldHeader);
+    hitHoldDiv.remove(hitBtn);
+    hitHoldDiv.remove(holdBtn);
+    losingDiv.append(finishGameBtn);
   }
 });
 
 // eventListener for holdBtn
 
 holdBtn.addEventListener("click", () => {});
+
+//-------------------------------------------
+
+// eventListener for finishGameBtn
+
+finishGameBtn.addEventListener("click", () => {});
