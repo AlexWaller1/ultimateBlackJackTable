@@ -517,7 +517,7 @@ aceHeader3.innerHTML = "Do You Want Your Third Ace to Equal 1 or 11?";
 const oneBtn3 = document.createElement("button");
 oneBtn3.id = "one-btn-3";
 oneBtn3.className = "btn btn-dark";
-oneBtn.innerHTML = "1";
+oneBtn3.innerHTML = "1";
 
 const elevenBtn3 = document.createElement("button");
 elevenBtn3.id = "eleven-btn-3";
@@ -536,7 +536,7 @@ oneBtn4.innerHTML = "1";
 const elevenBtn4 = document.createElement("button");
 elevenBtn4.id = "eleven-btn-4";
 elevenBtn4.className = "btn btn-dark";
-elevenBtn4.innerHTML = "4";
+elevenBtn4.innerHTML = "11";
 
 let aceValue = 0;
 
@@ -720,12 +720,45 @@ hitBtn.addEventListener("click", () => {
   //============================================
   //===============================================
   if (playerCards.includes("Ace")) {
+    //----------------------------------
+    hitHoldDiv.remove(hitHoldHeader);
+    hitHoldDiv.remove(hitBtn);
+    hitHoldDiv.remove(holdBtn);
+    //----------------------------------
     let j = 0;
+    aceCount = 0;
+    firstAceIndex = 0;
+    secondAceIndex = 0;
+    thirdAceIndex = 0;
+    fourthAceIndex = 0;
+
     for (; j < playerCards.length; j++) {
       if (playerCards[j] == "Ace") {
+        aceCount++;
+      }
+      if (aceCount == 1) {
         aceDiv.append(aceHeader);
         aceDiv.append(oneBtn);
         aceDiv.append(elevenBtn);
+        firstAceIndex = j;
+      }
+      if (aceCount == 2) {
+        aceDiv.append(aceHeader2);
+        aceDiv.append(oneBtn2);
+        aceDiv.append(elevenBtn2);
+        secondAceIndex = j;
+      }
+      if (aceCount == 3) {
+        aceDiv.append(aceHeader3);
+        aceDiv.append(oneBtn3);
+        aceDiv.append(elevenBtn3);
+        thirdAceIndex = j;
+      }
+      if (aceCount == 4) {
+        aceDiv.append(aceHeader4);
+        aceDiv.append(oneBtn4);
+        aceDiv.append(elevenBtn4);
+        fourthAceIndex = j;
       }
     }
   }
@@ -757,6 +790,43 @@ holdBtn.addEventListener("click", () => {
 });
 
 //-------------------------------------------
+//---------------------------------------------
+
+// eventListener for oneBtn
+oneBtn.addEventListener("click", () => {});
+
+// eventListener for elevenBtn
+elevenBtn.addEventListener("click", () => {});
+
+//---------------------------------------------
+//-------------------------------------------
+
+// eventListener for oneBtn2
+oneBtn2.addEventListener("click", () => {});
+
+// eventListener for elevenBtn2
+elevenBtn2.addEventListener("click", () => {});
+
+//----------------------------------------------
+//--------------------------------------------
+
+// eventListener for oneBtn3
+oneBtn3.addEventListener("click", () => {});
+
+// eventListener for elevenBtn3
+elevenBtn3.addEventListener("click", () => {});
+
+//----------------------------------------------
+//---------------------------------------------
+
+// eventListener for oneBtn4
+oneBtn4.addEventListener("click", () => {});
+
+// eventListener for elevenBtn4
+elevenBtn4.addEventListener("click", () => {});
+
+//-------------------------------------------
+//-----------------------------------------
 
 // eventListener for finishGameBtn
 
