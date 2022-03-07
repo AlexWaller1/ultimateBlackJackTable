@@ -585,14 +585,14 @@ finishGameBtn.innerHTML = "Finish Game";
 // eventListener for startGameBtn
 startGameBtn.addEventListener("click", () => {
   // remove elements from welcomeDiv
-  welcomeDiv.remove(welcomeDivHeader);
-  welcomeDiv.remove(startGameBtn);
+  welcomeDiv.removeChild(welcomeDivHeader);
+  welcomeDiv.removeChild(startGameBtn);
   // append elements to bettingDiv
-  bettingDiv.append(moneyBetHeader);
-  bettingDiv.append(moneyBetMsg);
-  bettingDiv.append(moneyBetLabel);
-  bettingDiv.append(moneyBetInput);
-  bettingDiv.append(moneyBetBtn);
+  bettingDiv.appendChild(moneyBetHeader);
+  bettingDiv.appendChild(moneyBetMsg);
+  bettingDiv.appendChild(moneyBetLabel);
+  bettingDiv.appendChild(moneyBetInput);
+  bettingDiv.appendChild(moneyBetBtn);
 });
 
 // eventListener for moneyBetBtn
@@ -606,16 +606,16 @@ moneyBetBtn.addEventListener("click", e => {
     moneyBetMsg.innerHTML = "Input Must Be A  Number";
   } else {
     moneyBet = parseFloat(moneyBetInput.value);
-    bettingDiv.remove(moneyBetHeader);
-    bettingDiv.remove(moneyBetMsg);
-    bettingDiv.remove(moneyBetLabel);
-    bettingDiv.remove(moneyBetInput);
-    bettingDiv.remove(moneyBetBtn);
+    bettingDiv.removeChild(moneyBetHeader);
+    bettingDiv.removeChild(moneyBetMsg);
+    bettingDiv.removeChild(moneyBetLabel);
+    bettingDiv.removeChild(moneyBetInput);
+    bettingDiv.removeChild(moneyBetBtn);
     //---------------------------------------
-    gamePlayHeadersDiv.append(gamePlayHeader);
-    gamePlayHeadersDiv.append(gamePlayBetHeader);
+    gamePlayHeadersDiv.appendChild(gamePlayHeader);
+    gamePlayHeadersDiv.appendChild(gamePlayBetHeader);
     gamePlayBetHeader.innerHTML = `Money Bet: ${moneyBet}`;
-    gamePlayHeadersDiv.append(gamePlayBtn);
+    gamePlayHeadersDiv.appendChild(gamePlayBtn);
   }
   //------------------------------------------
 
@@ -636,22 +636,22 @@ gamePlayBtn.addEventListener("click", () => {
 
   for (; i < 4; i++) {
     if (i % 2 == 0) {
-      playerHandDiv.append(playerHandHeader);
+      playerHandDiv.appendChild(playerHandHeader);
       let playerCardHeader = document.createElement("h3");
       playerCardHeader.className = "player-card-header";
       playerCardHeader.innerHTML = `${gameDeck[i].name}`;
-      playerImgList.append(playerCardHeader);
+      playerImgList.appendChild(playerCardHeader);
       playerCount = playerCount + gameDeck[i].value;
       playerCards.push(gameDeck[i].name);
       playerValues.push(gameDeck[i].value);
       gameDeck.splice(i, 1);
     }
     if (i == 1) {
-      dealerHandDiv.append(dealerHandHeader);
+      dealerHandDiv.appendChild(dealerHandHeader);
       let dealerCardHeader1 = document.createElement("h3");
       dealerCardHeader1.className = "dealer-card-header";
       dealerCardHeader1.innerHTML = `${gameDeck[i].name}`;
-      dealerImgList.append(dealerCardHeader1);
+      dealerImgList.appendChild(dealerCardHeader1);
       dealerCount = dealerCount + gameDeck[i].value;
       dealerCards.push(gameDeck[i].name);
       gameDeck.splice(i, 1);
@@ -660,24 +660,24 @@ gamePlayBtn.addEventListener("click", () => {
       let dealerCardHeader2 = document.createElement("h3");
       dealerCardHeader2.className = "dealer-card-header";
       dealerCardHeader2.innerHTML = `${gameDeck[i].name}`;
-      dealerImgList.append(dealerCardHeader2);
+      dealerImgList.appendChild(dealerCardHeader2);
       dealerCount = dealerCount + gameDeck[i].value;
       dealerCards.push(gameDeck[i].name);
       gameDeck.splice(i, 1);
     }
   }
 
-  gamePlayHeadersDiv.remove(gamePlayBtn);
+  gamePlayHeadersDiv.removeChild(gamePlayBtn);
 
-  playerCountDiv.append(playerCountHeader);
+  playerCountDiv.appendChild(playerCountHeader);
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21) {
   }
 
-  hitHoldDiv.append(hitHoldHeader);
-  hitHoldDiv.append(hitBtn);
-  hitHoldDiv.append(holdBtn);
+  hitHoldDiv.appendChild(hitHoldHeader);
+  hitHoldDiv.appendChild(hitBtn);
+  hitHoldDiv.appendChild(holdBtn);
 
   console.log(gameDeck.length);
 });
@@ -697,37 +697,37 @@ hitBtn.addEventListener("click", () => {
   //------------------------------------
   let newCardHeader = document.createElement("h3");
   newCardHeader.innerHTML = `${newCard2.name}`;
-  playerImgList.append(newCardHeader);
+  playerImgList.appendChild(newCardHeader);
   //-----------------------------------------------------
 
   //-----------------------------------------------------
   if (playerCount == 21) {
-    winningDiv.append(winningDivHeader1);
+    winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.append(winningDivHeader1);
-    hitHoldDiv.remove(hitHoldHeader);
-    hitHoldDiv.remove(hitBtn);
-    hitHoldDiv.remove(holdBtn);
-    winningDiv.append(finishGameBtn);
+    winningDiv.appendChild(winningDivHeader1);
+    hitHoldDiv.removeChild(hitHoldHeader);
+    hitHoldDiv.removeChild(hitBtn);
+    hitHoldDiv.removeChild(holdBtn);
+    winningDiv.appendChild(finishGameBtn);
   }
   if (playerCount > 21 && !playerCards.includes("Ace")) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.append(losingDivHeader);
-    hitHoldDiv.remove(hitHoldHeader);
-    hitHoldDiv.remove(hitBtn);
-    hitHoldDiv.remove(holdBtn);
-    losingDiv.append(finishGameBtn);
+    losingDiv.appendChild(losingDivHeader);
+    hitHoldDiv.removeChild(hitHoldHeader);
+    hitHoldDiv.removeChild(hitBtn);
+    hitHoldDiv.removeChild(holdBtn);
+    losingDiv.appendChild(finishGameBtn);
   }
   //=============================================
   //==============================================
   //============================================
   //===============================================
-  if (playerCards.includes("Ace")) {
+  if (playerCards.includes("Ace") && playerCount != 21) {
     //----------------------------------
-    hitHoldDiv.remove(hitHoldHeader);
-    hitHoldDiv.remove(hitBtn);
-    hitHoldDiv.remove(holdBtn);
+    hitHoldDiv.removeChild(hitHoldHeader);
+    hitHoldDiv.removeChild(hitBtn);
+    hitHoldDiv.removeChild(holdBtn);
     //----------------------------------
     let j = 0;
     aceCount = 0;
@@ -746,27 +746,27 @@ hitBtn.addEventListener("click", () => {
         aceCount++;
       }
       if (aceCount == 1) {
-        aceDiv.append(aceHeader);
-        aceDiv.append(oneBtn);
-        aceDiv.append(elevenBtn);
+        aceDiv.appendChild(aceHeader);
+        aceDiv.appendChild(oneBtn);
+        aceDiv.appendChild(elevenBtn);
         firstArr.push(j);
       }
       if (aceCount == 2) {
-        aceDiv.append(aceHeader2);
-        aceDiv.append(oneBtn2);
-        aceDiv.append(elevenBtn2);
+        aceDiv.appendChild(aceHeader2);
+        aceDiv.appendChild(oneBtn2);
+        aceDiv.appendChild(elevenBtn2);
         secondArr.push(j);
       }
       if (aceCount == 3) {
-        aceDiv.append(aceHeader3);
-        aceDiv.append(oneBtn3);
-        aceDiv.append(elevenBtn3);
+        aceDiv.appendChild(aceHeader3);
+        aceDiv.appendChild(oneBtn3);
+        aceDiv.appendChild(elevenBtn3);
         thirdArr.push(j);
       }
       if (aceCount == 4) {
-        aceDiv.append(aceHeader4);
-        aceDiv.append(oneBtn4);
-        aceDiv.append(elevenBtn4);
+        aceDiv.appendChild(aceHeader4);
+        aceDiv.appendChild(oneBtn4);
+        aceDiv.appendChild(elevenBtn4);
         fourthArr.push(i);
       }
     }
@@ -800,21 +800,21 @@ holdBtn.addEventListener("click", () => {
     dealerCount = dealerCount + gameDeck[i].value;
     let newDealerCard = document.createElement("h3");
     newDealerCard.innerHTML = `${gameDeck[i].name}`;
-    dealerImgList.append(newDealerCard);
+    dealerImgList.appendChild(newDealerCard);
     dealerCards.push(gameDeck[i].name);
   }
   if (dealerCount > playerCount && dealerCount <= 21) {
     losingDivHeader.innerHTML = `The House Wins ${moneyBet}`;
-    losingDiv.append(losingDivHeader);
+    losingDiv.appendChild(losingDivHeader);
   }
   if (dealerCount > 21 || dealerCount < playerCount) {
-    winningDiv.append(winningDivHeader1);
+    winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
   }
-  hitHoldDiv.remove(hitBtn);
-  hitHoldDiv.remove(holdBtn);
-  winningDiv.append(finishGameBtn);
+  hitHoldDiv.removeChild(hitBtn);
+  hitHoldDiv.removeChild(holdBtn);
+  winningDiv.appendChild(finishGameBtn);
 });
 
 //-------------------------------------------
@@ -826,18 +826,103 @@ oneBtn.addEventListener("click", () => {
 
   playerValues[firstAceIndex] = 1;
   console.log(playerValues);
+
+  console.log(`old playerCount: ${playerCount}`);
+
+  playerCount = 0;
+  let i = 0;
+
+  for (; i < playerValues.length; i++) {
+    playerCount = playerCount + playerValues[i];
+  }
+
+  console.log(`new playerCount: ${playerCount}`);
+
+  let newCount = playerCount;
+
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+
+  if (playerCount == 21 && firstAceIndex > secondAceIndex) {
+    winningDiv.appendChild(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
+    winningDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+  }
+  if (newCount < 21) {
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+    hitHoldDiv.appendChild(hitHoldHeader);
+    hitHoldDiv.appendChild(hitBtn);
+    hitHoldDiv.appendChild(holdBtn);
+  }
+  if (playerCount > 21) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.appendChild(losingDivHeader);
+    losingDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+  }
 });
 
 // eventListener for elevenBtn
 elevenBtn.addEventListener("click", () => {
   console.log("elevenBtn clicked");
+
+  playerValues[firstAceIndex] = 11;
+  console.log(playerValues);
+
+  console.log(`old playerCount: ${playerCount}`);
+
+  playerCount = 0;
+  let i = 0;
+
+  for (; i < playerValues.length; i++) {
+    playerCount = playerCount + playerValues[i];
+  }
+
+  console.log(`new playerCount: ${playerCount}`);
+
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+
+  if (playerCount == 21 && firstAceIndex > secondAceIndex) {
+    winningDiv.appendChild(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
+    winningDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+  }
+  if (playerCount < 21) {
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+    hitHoldDiv.appendChild(hitHoldHeader);
+    hitHoldDiv.appendChild(hitBtn);
+    hitHoldDiv.appendChild(holdBtn);
+  }
+  if (playerCount > 21 && firstAceIndex > secondAceIndex) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.appendChild(losingDivHeader);
+    losingDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+  }
 });
 
 //---------------------------------------------
 //-------------------------------------------
 
 // eventListener for oneBtn2
-oneBtn2.addEventListener("click", () => {});
+oneBtn2.addEventListener("click", () => {
+  console.log("oneBtn2 clicked");
+});
 
 // eventListener for elevenBtn2
 elevenBtn2.addEventListener("click", () => {});
