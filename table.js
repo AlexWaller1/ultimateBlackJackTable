@@ -450,6 +450,8 @@ let playerTurn = 0;
 
 let playerCards = [];
 
+let playerValues = [];
+
 // elements and variables in playerCountDiv
 
 const playerCountDiv = document.getElementById("player-count-div");
@@ -641,6 +643,7 @@ gamePlayBtn.addEventListener("click", () => {
       playerImgList.append(playerCardHeader);
       playerCount = playerCount + gameDeck[i].value;
       playerCards.push(gameDeck[i].name);
+      playerValues.push(gameDeck[i].value);
       gameDeck.splice(i, 1);
     }
     if (i == 1) {
@@ -689,6 +692,7 @@ hitBtn.addEventListener("click", () => {
   playerCount = playerCount + newCard2.value;
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
   playerCards.push(newCard2.name);
+  playerValues.push(newCard2.value);
   gameDeck.splice(0, 1);
   //------------------------------------
   let newCardHeader = document.createElement("h3");
@@ -731,6 +735,11 @@ hitBtn.addEventListener("click", () => {
     secondAceIndex = 0;
     thirdAceIndex = 0;
     fourthAceIndex = 0;
+    //-------------------------
+    let firstArr = [];
+    let secondArr = [];
+    let thirdArr = [];
+    let fourthArr = [];
 
     for (; j < playerCards.length; j++) {
       if (playerCards[j] == "Ace") {
@@ -740,26 +749,45 @@ hitBtn.addEventListener("click", () => {
         aceDiv.append(aceHeader);
         aceDiv.append(oneBtn);
         aceDiv.append(elevenBtn);
-        firstAceIndex = j;
+        firstArr.push(j);
       }
       if (aceCount == 2) {
         aceDiv.append(aceHeader2);
         aceDiv.append(oneBtn2);
         aceDiv.append(elevenBtn2);
-        secondAceIndex = j;
+        secondArr.push(j);
       }
       if (aceCount == 3) {
         aceDiv.append(aceHeader3);
         aceDiv.append(oneBtn3);
         aceDiv.append(elevenBtn3);
-        thirdAceIndex = j;
+        thirdArr.push(j);
       }
       if (aceCount == 4) {
         aceDiv.append(aceHeader4);
         aceDiv.append(oneBtn4);
         aceDiv.append(elevenBtn4);
-        fourthAceIndex = j;
+        fourthArr.push(i);
       }
+    }
+    firstAceIndex = firstArr[0];
+    if (firstAceIndex == undefined) {
+      firstAceIndex = 0;
+    }
+    //.................................
+    secondAceIndex = secondArr[0];
+    if (secondAceIndex == undefined) {
+      secondAceIndex = 0;
+    }
+    //-----------------------------------
+    thirdAceIndex = thirdArr[0];
+    if (thirdAceIndex == undefined) {
+      thirdAceIndex = 0;
+    }
+    //-------------------------------------
+    fourthAceIndex = fourthArr[0];
+    if (fourthAceIndex == undefined) {
+      fourthAceIndex = 0;
     }
   }
 });
@@ -793,10 +821,17 @@ holdBtn.addEventListener("click", () => {
 //---------------------------------------------
 
 // eventListener for oneBtn
-oneBtn.addEventListener("click", () => {});
+oneBtn.addEventListener("click", () => {
+  console.log("oneBtn clicked");
+
+  playerValues[firstAceIndex] = 1;
+  console.log(playerValues);
+});
 
 // eventListener for elevenBtn
-elevenBtn.addEventListener("click", () => {});
+elevenBtn.addEventListener("click", () => {
+  console.log("elevenBtn clicked");
+});
 
 //---------------------------------------------
 //-------------------------------------------
