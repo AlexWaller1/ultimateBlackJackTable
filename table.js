@@ -996,6 +996,31 @@ elevenBtn2.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && secondAceIndex >= thirdAceIndex) {
+    winningDiv.appendChild(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}`;
+    winningDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
+  }
+
+  if (playerCount < 21) {
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
+    hitHoldDiv.appendChild(hitHoldHeader);
+    hitHoldDiv.appendChild(hitBtn);
+    hitHoldDiv.appendChild(holdBtn);
+  }
+
+  if (playerCount > 21) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.appendChild(losingDivHeader);
+    losingDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
   }
 });
 
