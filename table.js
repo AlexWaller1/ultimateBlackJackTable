@@ -849,7 +849,7 @@ oneBtn.addEventListener("click", () => {
 
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
-  if (playerCount == 21 && firstAceIndex > secondAceIndex) {
+  if (playerCount == 21 && firstAceIndex >= secondAceIndex) {
     winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
@@ -896,7 +896,7 @@ elevenBtn.addEventListener("click", () => {
 
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
-  if (playerCount == 21 && firstAceIndex > secondAceIndex) {
+  if (playerCount == 21 && firstAceIndex >= secondAceIndex) {
     winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
@@ -948,7 +948,7 @@ oneBtn2.addEventListener("click", () => {
 
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
-  if (playerCount == 21 && secondAceIndex > thirdAceIndex) {
+  if (playerCount == 21 && secondAceIndex >= thirdAceIndex) {
     winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
@@ -976,7 +976,28 @@ oneBtn2.addEventListener("click", () => {
 });
 
 // eventListener for elevenBtn2
-elevenBtn2.addEventListener("click", () => {});
+elevenBtn2.addEventListener("click", () => {
+  console.log("elevenBtn2 clicked");
+
+  playerValues[secondAceIndex] = 11;
+  console.log(playerValues);
+
+  console.log(`old playerCount: ${playerCount}`);
+
+  playerCount = 0;
+  let i = 0;
+
+  for (; i < playerValues.length; i++) {
+    playerCount = playerCount + playerValues[i];
+  }
+
+  console.log(`new playerCount: ${playerCount}`);
+
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+
+  if (playerCount == 21 && secondAceIndex >= thirdAceIndex) {
+  }
+});
 
 //----------------------------------------------
 //--------------------------------------------
