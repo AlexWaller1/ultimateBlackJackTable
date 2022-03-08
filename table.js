@@ -1028,10 +1028,74 @@ elevenBtn2.addEventListener("click", () => {
 //--------------------------------------------
 
 // eventListener for oneBtn3
-oneBtn3.addEventListener("click", () => {});
+oneBtn3.addEventListener("click", () => {
+  console.log("oneBtn3 clicked");
+
+  playerValues[thirdAceIndex] = 1;
+  console.log(playerValues);
+
+  console.log(`old playerCount: ${playerCount}`);
+
+  playerCount = 0;
+  let i = 0;
+
+  for (; i < playerValues.length; i++) {
+    playerCount = playerCount + playerValues[i];
+  }
+
+  console.log(`new playerCount: ${playerCount}`);
+
+  let newCount = playerCount;
+
+  playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
+
+  if (playerCount == 21 && thirdAceIndex >= fourthAceIndex) {
+    winningDiv.appendChild(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    winningDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+  }
+
+  if (newCount < 21) {
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+    hitHoldDiv.appendChild(hitHoldHeader);
+    hitHoldDiv.appendChild(hitBtn);
+    hitHoldDiv.appendChild(holdBtn);
+  }
+
+  if (playerCount > 21) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.appendChild(losingDivHeader);
+    losingDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+  }
+});
 
 // eventListener for elevenBtn3
-elevenBtn3.addEventListener("click", () => {});
+elevenBtn3.addEventListener("click", () => {
+  console.log("elevenBtn3 clicked");
+
+  playerValues[thirdAceIndex] = 11;
+  console.log(playerValues);
+
+  console.log(`old playerCount: ${playerCount}`);
+
+  playerCount = 0;
+  let i = 0;
+
+  for (; i < playerValues.length; i++) {
+    playerCount = playerCount + playerValues[i];
+  }
+
+  console.log(`new playerCount: ${playerCount}`);
+});
 
 //----------------------------------------------
 //---------------------------------------------
