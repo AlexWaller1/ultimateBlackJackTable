@@ -1095,6 +1095,34 @@ elevenBtn3.addEventListener("click", () => {
   }
 
   console.log(`new playerCount: ${playerCount}`);
+
+  if (playerCount == 21 && thirdAceIndex >= fourthAceIndex) {
+    winningDiv.appendChild(winningDivHeader1);
+    moneyBet = moneyBet * 2;
+    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}`;
+    winningDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+  }
+
+  if (playerCount < 21) {
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+    hitHoldDiv.appendChild(hitHoldHeader);
+    hitHoldDiv.appendChild(hitBtn);
+    hitHoldDiv.appendChild(holdBtn);
+  }
+
+  if (playerCount > 21) {
+    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
+    losingDiv.appendChild(losingDivHeader);
+    losingDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+  }
 });
 
 //----------------------------------------------
