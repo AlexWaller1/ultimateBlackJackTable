@@ -683,7 +683,7 @@ gamePlayBtn.addEventListener("click", () => {
   hitHoldDiv.appendChild(holdBtn);
 
   if (playerCount == 21) {
-    moneyBet = moneyBet * 2;
+    moneyBet = moneyBet * 1.5;
     winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
     winningDiv.appendChild(winningDivHeader1);
     winningDiv.appendChild(finishGameBtn);
@@ -877,7 +877,7 @@ oneBtn.addEventListener("click", () => {
     hitHoldDiv.appendChild(hitBtn);
     hitHoldDiv.appendChild(holdBtn);
   }
-  if (playerCount > 21) {
+  if (playerCount > 21 && firstAceIndex >= secondAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
@@ -924,7 +924,7 @@ elevenBtn.addEventListener("click", () => {
     hitHoldDiv.appendChild(hitBtn);
     hitHoldDiv.appendChild(holdBtn);
   }
-  if (playerCount > 21) {
+  if (playerCount > 21 && firstAceIndex >= secondAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
@@ -976,7 +976,7 @@ oneBtn2.addEventListener("click", () => {
     hitHoldDiv.appendChild(hitBtn);
     hitHoldDiv.appendChild(holdBtn);
   }
-  if (playerCount > 21) {
+  if (playerCount > 21 && secondAceIndex >= thirdAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
@@ -1025,7 +1025,7 @@ elevenBtn2.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
 
-  if (playerCount > 21) {
+  if (playerCount > 21 && secondAceIndex >= thirdAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
@@ -1079,7 +1079,7 @@ oneBtn3.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
 
-  if (playerCount > 21) {
+  if (playerCount > 21 && thirdAceIndex >= fourthAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
@@ -1126,7 +1126,7 @@ elevenBtn3.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
 
-  if (playerCount > 21) {
+  if (playerCount > 21 && thirdAceIndex >= fourthAceIndex) {
     losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
     losingDiv.appendChild(losingDivHeader);
     losingDiv.appendChild(finishGameBtn);
