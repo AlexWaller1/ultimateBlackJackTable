@@ -580,6 +580,10 @@ const drawDivHeader = document.createElement("h3");
 
 // elements and variables for finishing games
 
+const finishGameDiv = document.getElementById("finish-game-div");
+
+const finishGameHeader = document.createElement("h3");
+
 const finishGameBtn = document.createElement("button");
 finishGameBtn.id = "finish-game-btn";
 finishGameBtn.className = "btn btn-dark";
@@ -631,7 +635,9 @@ moneyBetBtn.addEventListener("click", e => {
 
 //-----------------------------------------------
 //-------------------------------------------------
-
+let playerCardHeader = "";
+let dealerCardHeader1 = "";
+let dealerCardHeader2 = "";
 // eventListener
 gamePlayBtn.addEventListener("click", () => {
   console.log("button clicked");
@@ -643,7 +649,7 @@ gamePlayBtn.addEventListener("click", () => {
   for (; i < 4; i++) {
     if (i % 2 == 0) {
       playerHandDiv.appendChild(playerHandHeader);
-      let playerCardHeader = document.createElement("h3");
+      playerCardHeader = document.createElement("h3");
       playerCardHeader.className = "player-card-header";
       playerCardHeader.innerHTML = `${gameDeck[i].name}`;
       playerImgList.appendChild(playerCardHeader);
@@ -654,7 +660,7 @@ gamePlayBtn.addEventListener("click", () => {
     }
     if (i == 1) {
       dealerHandDiv.appendChild(dealerHandHeader);
-      let dealerCardHeader1 = document.createElement("h3");
+      dealerCardHeader1 = document.createElement("h3");
       dealerCardHeader1.className = "dealer-card-header";
       dealerCardHeader1.innerHTML = `${gameDeck[i].name}`;
       dealerImgList.appendChild(dealerCardHeader1);
@@ -663,7 +669,7 @@ gamePlayBtn.addEventListener("click", () => {
       gameDeck.splice(i, 1);
     }
     if (i == 3) {
-      let dealerCardHeader2 = document.createElement("h3");
+      dealerCardHeader2 = document.createElement("h3");
       dealerCardHeader2.className = "dealer-card-header";
       dealerCardHeader2.innerHTML = `${gameDeck[i].name}`;
       dealerImgList.appendChild(dealerCardHeader2);
@@ -684,9 +690,9 @@ gamePlayBtn.addEventListener("click", () => {
 
   if (playerCount == 21) {
     moneyBet = moneyBet * 1.5;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.appendChild(winningDivHeader1);
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     hitHoldDiv.removeChild(hitHoldHeader);
     hitHoldDiv.removeChild(hitBtn);
     hitHoldDiv.removeChild(holdBtn);
@@ -715,22 +721,21 @@ hitBtn.addEventListener("click", () => {
 
   //-----------------------------------------------------
   if (playerCount == 21) {
-    winningDiv.appendChild(winningDivHeader1);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameDiv.appendChild(finishGameHeader);
     hitHoldDiv.removeChild(hitHoldHeader);
     hitHoldDiv.removeChild(hitBtn);
     hitHoldDiv.removeChild(holdBtn);
-    winningDiv.appendChild(finishGameBtn);
+    finishGameDiv.appendChild(finishGameBtn);
   }
   if (playerCount > 21 && !playerCards.includes("Ace")) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
     hitHoldDiv.removeChild(hitHoldHeader);
     hitHoldDiv.removeChild(hitBtn);
     hitHoldDiv.removeChild(holdBtn);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameDiv.appendChild(finishGameBtn);
   }
   //=============================================
   //==============================================
@@ -817,22 +822,22 @@ holdBtn.addEventListener("click", () => {
     dealerCards.push(gameDeck[i].name);
   }
   if (dealerCount > playerCount && dealerCount <= 21) {
-    losingDivHeader.innerHTML = `The House Wins ${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
+    finishGameHeader.innerHTML = `The House Wins ${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
   }
   if (dealerCount > 21 || dealerCount < playerCount) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
   }
   if (dealerCount >= 17 && dealerCount == playerCount) {
-    drawDiv.appendChild(drawDivHeader);
-    drawDiv.innerHTML = `Game Is A Draw, The Player Keeps $${moneyBet}.`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameHeader.innerHTML = `Game Is A Draw, The Player Keeps $${moneyBet}.`;
   }
   hitHoldDiv.removeChild(hitHoldHeader);
   hitHoldDiv.removeChild(hitBtn);
   hitHoldDiv.removeChild(holdBtn);
-  winningDiv.appendChild(finishGameBtn);
+  finishGameDiv.appendChild(finishGameBtn);
 });
 
 //-------------------------------------------
@@ -861,10 +866,10 @@ oneBtn.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && firstAceIndex >= secondAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win &${moneyBet}`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader);
     aceDiv.removeChild(oneBtn);
     aceDiv.removeChild(elevenBtn);
@@ -878,9 +883,9 @@ oneBtn.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
   if (playerCount > 21 && firstAceIndex >= secondAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader);
     aceDiv.removeChild(oneBtn);
     aceDiv.removeChild(elevenBtn);
@@ -908,10 +913,10 @@ elevenBtn.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && firstAceIndex >= secondAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win &${moneyBet}`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win &${moneyBet}`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader);
     aceDiv.removeChild(oneBtn);
     aceDiv.removeChild(elevenBtn);
@@ -925,9 +930,9 @@ elevenBtn.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
   if (playerCount > 21 && firstAceIndex >= secondAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader);
     aceDiv.removeChild(oneBtn);
     aceDiv.removeChild(elevenBtn);
@@ -960,10 +965,10 @@ oneBtn2.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && secondAceIndex >= thirdAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader2);
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
@@ -977,9 +982,9 @@ oneBtn2.addEventListener("click", () => {
     hitHoldDiv.appendChild(holdBtn);
   }
   if (playerCount > 21 && secondAceIndex >= thirdAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader2);
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
@@ -1007,10 +1012,10 @@ elevenBtn2.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && secondAceIndex >= thirdAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader2);
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
@@ -1026,9 +1031,9 @@ elevenBtn2.addEventListener("click", () => {
   }
 
   if (playerCount > 21 && secondAceIndex >= thirdAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader2);
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
@@ -1061,10 +1066,10 @@ oneBtn3.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21 && thirdAceIndex >= fourthAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader3);
     aceDiv.removeChild(oneBtn3);
     aceDiv.removeChild(elevenBtn3);
@@ -1080,9 +1085,9 @@ oneBtn3.addEventListener("click", () => {
   }
 
   if (playerCount > 21 && thirdAceIndex >= fourthAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader3);
     aceDiv.removeChild(oneBtn3);
     aceDiv.removeChild(elevenBtn3);
@@ -1108,10 +1113,10 @@ elevenBtn3.addEventListener("click", () => {
   console.log(`new playerCount: ${playerCount}`);
 
   if (playerCount == 21 && thirdAceIndex >= fourthAceIndex) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader3);
     aceDiv.removeChild(oneBtn3);
     aceDiv.removeChild(elevenBtn3);
@@ -1127,9 +1132,9 @@ elevenBtn3.addEventListener("click", () => {
   }
 
   if (playerCount > 21 && thirdAceIndex >= fourthAceIndex) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader3);
     aceDiv.removeChild(oneBtn3);
     aceDiv.removeChild(elevenBtn3);
@@ -1162,10 +1167,10 @@ oneBtn4.addEventListener("click", () => {
   playerCountHeader.innerHTML = `Player Count: ${playerCount}`;
 
   if (playerCount == 21) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}!`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}!`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader4);
     aceDiv.removeChild(oneBtn4);
     aceDiv.removeChild(elevenBtn4);
@@ -1181,9 +1186,9 @@ oneBtn4.addEventListener("click", () => {
   }
 
   if (playerCount > 21) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader4);
     aceDiv.removeChild(oneBtn4);
     aceDiv.removeChild(elevenBtn4);
@@ -1209,10 +1214,10 @@ elevenBtn4.addEventListener("click", () => {
   console.log(`new playerCount: ${playerCount}`);
 
   if (playerCount == 21) {
-    winningDiv.appendChild(winningDivHeader1);
+    finishGameDiv.appendChild(finishGameHeader);
     moneyBet = moneyBet * 2;
-    winningDivHeader1.innerHTML = `Congratulations! You Win $${moneyBet}`;
-    winningDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `Congratulations! You Win $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader4);
     aceDiv.removeChild(oneBtn4);
     aceDiv.removeChild(elevenBtn4);
@@ -1228,9 +1233,9 @@ elevenBtn4.addEventListener("click", () => {
   }
 
   if (playerCount > 21) {
-    losingDivHeader.innerHTML = `The House Wins $${moneyBet}`;
-    losingDiv.appendChild(losingDivHeader);
-    losingDiv.appendChild(finishGameBtn);
+    finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
+    finishGameDiv.appendChild(finishGameHeader);
+    finishGameDiv.appendChild(finishGameBtn);
     aceDiv.removeChild(aceHeader4);
     aceDiv.removeChild(oneBtn4);
     aceDiv.removeChild(elevenBtn4);
@@ -1242,4 +1247,96 @@ elevenBtn4.addEventListener("click", () => {
 
 // eventListener for finishGameBtn
 
-finishGameBtn.addEventListener("click", () => {});
+finishGameBtn.addEventListener("click", () => {
+  if (aceDiv.contains(aceHeader)) {
+    aceDiv.removeChild(aceHeader);
+    aceDiv.removeChild(oneBtn);
+    aceDiv.removeChild(elevenBtn);
+  }
+
+  if (aceDiv.contains(aceHeader2)) {
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
+  }
+
+  if (aceDiv.contains(aceHeader3)) {
+    aceDiv.removeChild(aceHeader3);
+    aceDiv.removeChild(oneBtn3);
+    aceDiv.removeChild(elevenBtn3);
+  }
+
+  if (aceDiv.contains(aceHeader4)) {
+    aceDiv.removeChild(aceHeader4);
+    aceDiv.removeChild(oneBtn4);
+    aceDiv.removeChild(elevenBtn4);
+  }
+
+  //   if (winningDiv.contains(winningDivHeader1)) {
+  //     winningDiv.removeChild(winningDivHeader1);
+  //     winningDiv.removeChild(finishGameBtn);
+  //   }
+
+  //   if (losingDiv.contains(losingDivHeader)) {
+  //     losingDiv.removeChild(losingDivHeader);
+  //     losingDiv.removeChild(finishGameBtn);
+  //   }
+
+  //   if (drawDiv.contains(drawDivHeader)) {
+  //     drawDiv.removeChild(drawDivHeader);
+  //     drawDiv.removeChild(finishGameBtn);
+  //   }
+
+  if (hitHoldDiv.contains(hitHoldHeader)) {
+    hitHoldDiv.removeChild(hitHoldHeader);
+  }
+
+  gamePlayHeadersDiv.removeChild(gamePlayHeader);
+  gamePlayHeadersDiv.removeChild(gamePlayBetHeader);
+
+  playerHandDiv.removeChild(playerHandHeader);
+  playerImgList.removeChild(playerCardHeader);
+
+  dealerHandDiv.removeChild(dealerHandHeader);
+  dealerImgList.removeChild(dealerCardHeader1);
+  dealerImgList.removeChild(dealerCardHeader2);
+
+  finishGameDiv.removeChild(finishGameHeader);
+  finishGameDiv.removeChild(finishGameBtn);
+
+  //   if (dealerImgList.contains(newDealerCard)) {
+  //     dealerImgList.removeChild(newDealerCard);
+  //   }
+
+  //   if (playerImgList.contains(newCardHeader)) {
+  //     playerImgList.removeChild(newCardHeader);
+  //   }
+
+  dealerImgList.innerHTML = "";
+
+  playerImgList.innerHTML = "";
+
+  playerCountDiv.removeChild(playerCountHeader);
+
+  moneyBet = 0;
+  gameDeck = [];
+  dealerCount = 0;
+  dealerCards = [];
+  playerCards = [];
+  playerValues = [];
+  playerCount = 0;
+  aceValue = 0;
+  firstAceIndex = 0;
+  secondAceIndex = 0;
+  thirdAceIndex = 0;
+  fourthAceIndex = 0;
+  aceCount = 0;
+
+  welcomeDiv.appendChild(welcomeDivHeader);
+  welcomeDiv.appendChild(startGameBtn);
+});
+
+console.log(welcomeDiv.contains(welcomeDivHeader));
+// true
+console.log(welcomeDiv.contains(oneBtn2));
+// false
