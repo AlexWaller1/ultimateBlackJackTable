@@ -11,79 +11,92 @@ const diamonds = [
     name: "2 of Diamonds",
     value: 2,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "3 of Diamonds",
     value: 3,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "4 of Diamonds",
     value: 4,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "5 of Diamonds",
     value: 5,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "6 of Diamonds",
     value: 6,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "7 of Diamonds",
     value: 7,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "8 of Diamonds",
     value: 8,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "9 of Diamonds",
     value: 9,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "10 of Diamonds",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Jack of Diamonds",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Queen of Diamonds",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "King of Diamonds",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Ace",
     value: 11,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   }
 ];
 
@@ -92,79 +105,92 @@ const clubs = [
     name: "2 of Clubs",
     value: 2,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "3 of Clubs",
     value: 3,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "4 of Clubs",
     value: 4,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "5 of Clubs",
     value: 5,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "6 of Clubs",
     value: 6,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "7 of Clubs",
     value: 7,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "8 of Clubs",
     value: 8,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "9 of Clubs",
     value: 9,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "10 of Clubs",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Jack of Clubs",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Queen of Clubs",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "King of Clubs",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Ace",
     value: 11,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   }
 ];
 
@@ -173,79 +199,92 @@ const hearts = [
     name: "2 of Hearts",
     value: 2,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "3 of Hearts",
     value: 3,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "4 of Hearts",
     value: 4,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "5 of Hearts",
     value: 5,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "6 of Hearts",
     value: 6,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "7 of Hearts",
     value: 7,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "8 of Hearts",
     value: 8,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "9 of Hearts",
     value: 9,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "10 of Hearts",
     value: 10,
     fromtImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Jack of Hearts",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Queen of Hearts",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "King of Hearts",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Ace",
     value: 11,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   }
 ];
 
@@ -254,79 +293,92 @@ const spades = [
     name: "2 of Spades",
     value: 2,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "3 of Spades",
     value: 3,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "4 of Spades",
     value: 4,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "5 of Spades",
     value: 5,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "6 of Spades",
     value: 6,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "7 of Spades",
     value: 7,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "8 of Spades",
     value: 8,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "9 of Spades",
     value: 9,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "10 of Spades",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Jack of Spades",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Queen of Spades",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "King of Spades",
     value: 10,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
     name: "Ace",
     value: 11,
     frontImg: "",
-    backImg: ""
+    backImg:
+      "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   }
 ];
 
