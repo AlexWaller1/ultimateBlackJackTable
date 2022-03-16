@@ -1121,6 +1121,12 @@ oneBtn2.addEventListener("click", () => {
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
   }
+
+  if (playerCount > 21 && secondAceIndex < thirdAceIndex) {
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
+  }
 });
 
 // eventListener for elevenBtn2
@@ -1166,6 +1172,12 @@ elevenBtn2.addEventListener("click", () => {
     finishGameHeader.innerHTML = `The House Wins $${moneyBet}`;
     finishGameDiv.appendChild(finishGameHeader);
     finishGameDiv.appendChild(finishGameBtn);
+    aceDiv.removeChild(aceHeader2);
+    aceDiv.removeChild(oneBtn2);
+    aceDiv.removeChild(elevenBtn2);
+  }
+
+  if (playerCount > 21 && secondAceIndex < thirdAceIndex) {
     aceDiv.removeChild(aceHeader2);
     aceDiv.removeChild(oneBtn2);
     aceDiv.removeChild(elevenBtn2);
