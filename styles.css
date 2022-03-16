@@ -164,3 +164,19 @@ li:hover {
 #hold-btn {
   margin-left: 25px;
 }
+
+.player-card-header {
+  margin-right: 15px;
+}
+
+.dealer-card-header {
+  margin-right: 15px;
+}
+
+.new-card-header {
+  margin-right: 15px;
+}
+
+.new-dealer-card {
+  margin-right: 15px;
+}
