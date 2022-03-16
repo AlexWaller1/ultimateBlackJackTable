@@ -434,7 +434,7 @@ const spades = [
   }
 ];
 
-const fullDeck = [...diamonds, ...clubs, ...hearts, ...spades];
+let fullDeck = [...diamonds, ...clubs, ...hearts, ...spades];
 
 console.log(fullDeck);
 
@@ -713,11 +713,8 @@ startGameBtn.addEventListener("click", () => {
 moneyBetBtn.addEventListener("click", e => {
   e.preventDefault();
   console.log("button clicked");
-  if (moneyBetInput.value.trim() == "") {
-    moneyBetMsg.innerHTML = "Please Enter Amount";
-  }
-  if (isNaN(moneyBetInput.value) == true) {
-    moneyBetMsg.innerHTML = "Input Must Be A  Number";
+  if (moneyBetInput.value.trim() == "" || isNaN(moneyBetInput.value) == true) {
+    moneyBetMsg.innerHTML = "Please Enter Valid Bet";
   } else {
     moneyBet = parseFloat(moneyBetInput.value);
     bettingDiv.removeChild(moneyBetHeader);
@@ -754,6 +751,7 @@ gamePlayBtn.addEventListener("click", () => {
   for (; i < 4; i++) {
     if (i % 2 == 0) {
       playerHandDiv.appendChild(playerHandHeader);
+      playerCards.push(gameDeck[i].name);
       playerCardHeader = document.createElement("img");
       playerCardHeader.className = "player-card-header";
       playerCardHeader.src = gameDeck[i].frontImg;
@@ -761,12 +759,13 @@ gamePlayBtn.addEventListener("click", () => {
       playerCardHeader.height = 210;
       playerImgList.appendChild(playerCardHeader);
       playerCount = playerCount + gameDeck[i].value;
-      playerCards.push(gameDeck[i].name);
+
       playerValues.push(gameDeck[i].value);
       gameDeck.splice(i, 1);
     }
     if (i == 1) {
       dealerHandDiv.appendChild(dealerHandHeader);
+      dealerCards.push(gameDeck[i].name);
       dealerCardHeader1 = document.createElement("img");
       dealerCardHeader1.className = "dealer-card-header";
       dealerCardHeader1.src = gameDeck[i].frontImg;
@@ -774,10 +773,11 @@ gamePlayBtn.addEventListener("click", () => {
       dealerCardHeader1.height = 210;
       dealerImgList.appendChild(dealerCardHeader1);
       dealerCount = dealerCount + gameDeck[i].value;
-      dealerCards.push(gameDeck[i].name);
+
       gameDeck.splice(i, 1);
     }
     if (i == 3) {
+      dealerCards.push(gameDeck[i].name);
       dealerCardHeader2 = document.createElement("img");
       dealerCardHeader2.className = "dealer-card-header";
       dealerCardHeader2.src = gameDeck[i].backImg;
@@ -786,7 +786,7 @@ gamePlayBtn.addEventListener("click", () => {
       dealerCardHeader2.height = 210;
       dealerImgList.appendChild(dealerCardHeader2);
       dealerCount = dealerCount + gameDeck[i].value;
-      dealerCards.push(gameDeck[i].name);
+
       gameDeck.splice(i, 1);
     }
   }
@@ -1451,6 +1451,8 @@ finishGameBtn.addEventListener("click", () => {
   thirdAceIndex = 0;
   fourthAceIndex = 0;
   aceCount = 0;
+
+  fullDeck = [...hearts, ...spades, ...clubs, ...diamonds];
 
   welcomeDiv.appendChild(welcomeDivHeader);
   welcomeDiv.appendChild(startGameBtn);
