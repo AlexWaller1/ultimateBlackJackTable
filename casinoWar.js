@@ -570,6 +570,10 @@ cwStartGameBtn.className = "btn btn-dark";
 cwStartGameBtn.id = "cw-start-game-btn";
 cwStartGameBtn.innerHTML = "start game";
 
+const cwStartGameHeader2 = document.createElement("h1");
+cwStartGameHeader2.id = "cw-start-game-header-2";
+cwStartGameHeader2.innerHTML = "Let's Play Casino War!";
+
 //------------------------------------------------------
 
 // cwDealerDiv elements
@@ -642,4 +646,7 @@ cwMoneyBetFormBtn.addEventListener("click", e => {
 // eventListener for cwStartGameBtn
 cwStartGameBtn.addEventListener("click", () => {
   console.log("game started!");
+
+  cwStartGameDiv.removeChild(cwStartGameHeader);
+  cwStartGameDiv.removeChild(cwStartGameBtn);
 });
