@@ -544,6 +544,13 @@ const cwMoneyBetFormBtn = document.createElement("button");
 cwMoneyBetFormBtn.className = "btn btn-dark";
 cwMoneyBetFormBtn.id = "cw-money-bet-form-btn";
 cwMoneyBetFormBtn.innerHTML = "Place Your Bet";
+
+// appending elements to cwMoneyBetForm
+
+cwMoneyBetForm.appendChild(cwMoneyBetFormLabel);
+cwMoneyBetForm.appendChild(cwMoneyBetFormInput);
+cwMoneyBetForm.appendChild(cwMoneyBetFormBtn);
+
 //-----------------------------------------------------
 
 // cwDealerDiv elements
@@ -576,4 +583,25 @@ cwStartDiv.appendChild(cwStartBtn);
 
 cwStartBtn.addEventListener("click", () => {
   console.log("start button clicked");
+
+  cwStartDiv.removeChild(cwStartHeader);
+  cwStartDiv.removeChild(cwStartBtn);
+
+  cwMoneyBetDiv.appendChild(cwMoneyBetHeader);
+  cwMoneyBetDiv.appendChild(cwMoneyBetForm);
+});
+
+//----------------------------------------------
+
+// Functionality for Placing Bets
+
+cwMoneyBetFormBtn.addEventListener("click", e => {
+  e.preventDefault();
+
+  if (
+    cwMoneyBetFormInput.value.trim() === "" ||
+    isNaN(parseFloat(cwMoneyBetFormInput.value))
+  ) {
+    console.log("Please Enter An Amount");
+  }
 });

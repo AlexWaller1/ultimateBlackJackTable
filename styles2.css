@@ -10,3 +10,20 @@ body {
 #casino-war-start-div {
   text-align: center;
 }
+
+#casino-war-money-bet-div {
+  text-align: center;
+}
+
+#cw-money-bet-header {
+  margin-bottom: 20px;
+}
+
+#cw-money-bet-form-label {
+  margin-right: 10px;
+  font-size: larger;
+}
+
+#cw-money-bet-form-input {
+  margin-right: 10px;
+}
