@@ -27,3 +27,12 @@ body {
 #cw-money-bet-form-input {
   margin-right: 10px;
 }
+
+#cw-money-bet-msg {
+  margin-bottom: 10px;
+  font-size: larger;
+}
+
+#casino-war-start-game-div {
+  text-align: center;
+}

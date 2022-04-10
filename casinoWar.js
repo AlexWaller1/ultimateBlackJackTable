@@ -518,12 +518,17 @@ cwStartBtn.innerHTML = "Get Started";
 
 const cwMoneyBetDiv = document.getElementById("casino-war-money-bet-div");
 
-const cwMoneyBet = 0;
+let cwMoneyBet = 0;
 
 // Header for cwMoneyBetDiv
 const cwMoneyBetHeader = document.createElement("h1");
 cwMoneyBetHeader.id = "cw-money-bet-header";
 cwMoneyBetHeader.innerHTML = "How Much Money Would You Like to Bet?";
+
+// MSG Div for cwMoneyBetDiv
+const cwMoneyBetMsg = document.createElement("div");
+cwMoneyBetMsg.className = "msg";
+cwMoneyBetMsg.id = "cw-money-bet-msg";
 
 // form for cwMoneyBetDiv
 const cwMoneyBetForm = document.createElement("form");
@@ -552,6 +557,20 @@ cwMoneyBetForm.appendChild(cwMoneyBetFormInput);
 cwMoneyBetForm.appendChild(cwMoneyBetFormBtn);
 
 //-----------------------------------------------------
+
+// cwStartGameDiv elements
+const cwStartGameDiv = document.getElementById("casino-war-start-game-div");
+
+const cwStartGameHeader = document.createElement("h1");
+cwStartGameHeader.id = "cw-start-game-header";
+cwStartGameHeader.innerHTML = "Ready to Start the Game?";
+
+const cwStartGameBtn = document.createElement("button");
+cwStartGameBtn.className = "btn btn-dark";
+cwStartGameBtn.id = "cw-start-game-btn";
+cwStartGameBtn.innerHTML = "start game";
+
+//------------------------------------------------------
 
 // cwDealerDiv elements
 
@@ -588,6 +607,7 @@ cwStartBtn.addEventListener("click", () => {
   cwStartDiv.removeChild(cwStartBtn);
 
   cwMoneyBetDiv.appendChild(cwMoneyBetHeader);
+  cwMoneyBetDiv.appendChild(cwMoneyBetMsg);
   cwMoneyBetDiv.appendChild(cwMoneyBetForm);
 });
 
@@ -595,6 +615,7 @@ cwStartBtn.addEventListener("click", () => {
 
 // Functionality for Placing Bets
 
+// eventListener for cwMoneyBetFormBtn
 cwMoneyBetFormBtn.addEventListener("click", e => {
   e.preventDefault();
 
@@ -603,5 +624,22 @@ cwMoneyBetFormBtn.addEventListener("click", e => {
     isNaN(parseFloat(cwMoneyBetFormInput.value))
   ) {
     console.log("Please Enter An Amount");
+    cwMoneyBetMsg.innerHTML = "Please Enter a Proper Amount";
+    cwMoneyBetFormInput.value = "";
+  } else {
+    cwMoneyBet = parseFloat(cwMoneyBetFormInput.value);
+    console.log(`Money Bet $${cwMoneyBet}`);
+    cwMoneyBetFormInput.value = "";
+    cwMoneyBetDiv.removeChild(cwMoneyBetHeader);
+    cwMoneyBetDiv.removeChild(cwMoneyBetMsg);
+    cwMoneyBetDiv.removeChild(cwMoneyBetForm);
+
+    cwStartGameDiv.appendChild(cwStartGameHeader);
+    cwStartGameDiv.appendChild(cwStartGameBtn);
   }
+});
+
+// eventListener for cwStartGameBtn
+cwStartGameBtn.addEventListener("click", () => {
+  console.log("game started!");
 });
