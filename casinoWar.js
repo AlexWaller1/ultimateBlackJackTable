@@ -471,3 +471,23 @@ console.log("wholeDeck", wholeDeck);
 
 console.log("-----------------------------");
 console.log("------------------------------");
+
+console.log("shuffling deck");
+
+function shuffleWarDeck(array) {
+  let temp = 0;
+  let j = 0;
+  let i = 0;
+
+  for (; i < array.length; i++) {
+    let j = Math.floor(Math.random() * array.length);
+    temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  return array;
+}
+
+const warGameDeck = shuffleWarDeck(wholeDeck);
+
+console.log(warGameDeck);
