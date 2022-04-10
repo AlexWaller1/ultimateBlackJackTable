@@ -508,14 +508,17 @@ cwStartHeader.innerHTML = "Want to Play a Game of Casino War";
 
 // Button for cwStartDiv
 const cwStartBtn = document.createElement("button");
-cwStartBtn.class = "btn btn-dark";
-cwStartBtn.innerHTML = "Start Game";
+cwStartBtn.className = "btn btn-dark";
+cwStartBtn.id = "cw-start-btn";
+cwStartBtn.innerHTML = "Get Started";
 
 //----------------------------------------------
 
 // cwMoneyBetDiv elements
 
 const cwMoneyBetDiv = document.getElementById("casino-war-money-bet-div");
+
+const cwMoneyBet = 0;
 
 // Header for cwMoneyBetDiv
 const cwMoneyBetHeader = document.createElement("h1");
@@ -531,6 +534,16 @@ const cwMoneyBetFormLabel = document.createElement("label");
 cwMoneyBetFormLabel.id = "cw-money-bet-form-label";
 cwMoneyBetFormLabel.innerHTML = "Money Bet:";
 
+// input for cwMoneyBetForm
+const cwMoneyBetFormInput = document.createElement("input");
+cwMoneyBetFormInput.id = "cw-money-bet-form-input";
+cwMoneyBetFormInput.placeholder = "Money Bet...";
+
+// button for cwMoneyBetForm
+const cwMoneyBetFormBtn = document.createElement("button");
+cwMoneyBetFormBtn.className = "btn btn-dark";
+cwMoneyBetFormBtn.id = "cw-money-bet-form-btn";
+cwMoneyBetFormBtn.innerHTML = "Place Your Bet";
 //-----------------------------------------------------
 
 // cwDealerDiv elements
@@ -548,3 +561,19 @@ const cwResultDiv = document.getElementById("casino-war-result-div");
 // cwPlayerDiv elements
 
 const cwPlayerDiv = document.getElementById("casino-war-player-div");
+
+//---------------------------------------------------------------
+
+console.log("------------------------------------");
+console.log("-------------------------------------");
+
+// Gameplay functionality
+
+// appending elements to cwStartDiv
+
+cwStartDiv.appendChild(cwStartHeader);
+cwStartDiv.appendChild(cwStartBtn);
+
+cwStartBtn.addEventListener("click", () => {
+  console.log("start button clicked");
+});
