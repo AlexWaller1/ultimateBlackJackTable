@@ -491,3 +491,60 @@ function shuffleWarDeck(array) {
 const warGameDeck = shuffleWarDeck(wholeDeck);
 
 console.log(warGameDeck);
+
+console.log("---------------------------------");
+console.log("-------------------------------");
+
+console.log("organizing HTML elements");
+
+// cwStartDiv elements
+
+const cwStartDiv = document.getElementById("casino-war-start-div");
+
+// Header for cwStartDiv
+const cwStartHeader = document.createElement("h1");
+cwStartHeader.id = "cw-start-header";
+cwStartHeader.innerHTML = "Want to Play a Game of Casino War";
+
+// Button for cwStartDiv
+const cwStartBtn = document.createElement("button");
+cwStartBtn.class = "btn btn-dark";
+cwStartBtn.innerHTML = "Start Game";
+
+//----------------------------------------------
+
+// cwMoneyBetDiv elements
+
+const cwMoneyBetDiv = document.getElementById("casino-war-money-bet-div");
+
+// Header for cwMoneyBetDiv
+const cwMoneyBetHeader = document.createElement("h1");
+cwMoneyBetHeader.id = "cw-money-bet-header";
+cwMoneyBetHeader.innerHTML = "How Much Money Would You Like to Bet?";
+
+// form for cwMoneyBetDiv
+const cwMoneyBetForm = document.createElement("form");
+cwMoneyBetForm.id = "cw-money-bet-form";
+
+// label for cwMoneyBetForm
+const cwMoneyBetFormLabel = document.createElement("label");
+cwMoneyBetFormLabel.id = "cw-money-bet-form-label";
+cwMoneyBetFormLabel.innerHTML = "Money Bet:";
+
+//-----------------------------------------------------
+
+// cwDealerDiv elements
+
+const cwDealerDiv = document.getElementById("casino-war-dealer-div");
+
+// cwGamePlayDiv elements
+
+const cwGamePlayDiv = document.getElementById("casino-war-gameplay-div");
+
+// cwResultDiv elements
+
+const cwResultDiv = document.getElementById("casino-war-result-div");
+
+// cwPlayerDiv elements
+
+const cwPlayerDiv = document.getElementById("casino-war-player-div");
