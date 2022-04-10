@@ -574,11 +574,24 @@ const cwStartGameHeader2 = document.createElement("h1");
 cwStartGameHeader2.id = "cw-start-game-header-2";
 cwStartGameHeader2.innerHTML = "Let's Play Casino War!";
 
+const cwStartGameHeader3 = document.createElement("h1");
+cwStartGameHeader3.id = "cw-start-game-header-3";
+
 //------------------------------------------------------
 
 // cwDealerDiv elements
 
 const cwDealerDiv = document.getElementById("casino-war-dealer-div");
+
+const cwDealerImg = document.createElement("img");
+cwDealerImg.className = "casino-war-img";
+
+// cwDealerDiv2 elements
+
+const cwDealerDiv2 = document.getElementById("casino-war-dealer-div-2");
+
+const cwDealerImg2 = document.createElement("casino-war-img");
+cwDealerImg.className = "casino-war-img-2";
 
 // cwGamePlayDiv elements
 
@@ -649,4 +662,8 @@ cwStartGameBtn.addEventListener("click", () => {
 
   cwStartGameDiv.removeChild(cwStartGameHeader);
   cwStartGameDiv.removeChild(cwStartGameBtn);
+
+  cwStartGameDiv.appendChild(cwStartGameHeader2);
+  cwStartGameDiv.appendChild(cwStartGameHeader3);
+  cwStartGameHeader3.innerHTML = `Money Bet: $${cwMoneyBet}`;
 });
