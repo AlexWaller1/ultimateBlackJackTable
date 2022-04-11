@@ -488,7 +488,9 @@ function shuffleWarDeck(array) {
   return array;
 }
 
-const warGameDeck = shuffleWarDeck(wholeDeck);
+let warGameDeck = shuffleWarDeck(wholeDeck);
+
+const newDeck = warGameDeck;
 
 console.log(warGameDeck);
 
@@ -597,12 +599,30 @@ cwDealerImg.className = "casino-war-img";
 
 const cwGamePlayDiv = document.getElementById("casino-war-gameplay-div");
 
+const cwWarBtn = document.createElement("button");
+cwWarBtn.className = "btn btn-dark";
+cwWarBtn.id = "cw-war-btn";
+cwWarBtn.innerHTML = "Go To War";
+
+const cwSurrenderBtn = document.createElement("button");
+cwSurrenderBtn.className = "btn btn-dark";
+cwSurrenderBtn.id = "cw-surrender-btn";
+cwSurrenderBtn.innerHTML = "Surrender the Hand";
+
 // cwResultDiv elements
 
 const cwResultDiv = document.getElementById("casino-war-result-div");
 
 const cwResultHeader = document.createElement("h2");
 cwResultHeader.id = "cw-result-header";
+
+const cwResultHeader2 = document.createElement("h2");
+cwResultHeader2.id = "cw-result-header-2";
+
+const cwResultBtn = document.createElement("button");
+cwResultBtn.className = "btn btn-dark";
+cwResultBtn.id = "cw-result-btn";
+cwResultBtn.innerHTML = "finish game";
 
 // cwPlayerDiv elements
 
@@ -680,4 +700,16 @@ cwStartGameBtn.addEventListener("click", () => {
   cwStartGameDiv.appendChild(cwStartGameHeader2);
   cwStartGameDiv.appendChild(cwStartGameHeader3);
   cwStartGameHeader3.innerHTML = `Money Bet: $${cwMoneyBet}`;
+
+  const firstPlayerCard = warGameDeck[0];
+
+  console.log(firstPlayerCard.name);
+
+  warGameDeck.splice(0, 1);
+
+  const firstDealerCard = warGameDeck[0];
+
+  console.log(firstDealerCard.name);
+
+  warGameDeck.splice(0, 1);
 });
