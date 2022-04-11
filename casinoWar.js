@@ -587,6 +587,8 @@ const cwDealerDiv = document.getElementById("casino-war-dealer-div");
 
 const cwDealerImg = document.createElement("img");
 cwDealerImg.className = "casino-war-img";
+cwDealerImg.height = 210;
+cwDealerImg.width = 150;
 
 // cwDealerDiv2 elements
 
@@ -635,9 +637,9 @@ cwPlayerImg.className = "casino-war-img";
 
 const cwPlayerDiv2 = document.getElementById("casino-war-player-div-2");
 
-const cwPlayImg2 = document.createElement("img");
+const cwPlayerImg2 = document.createElement("img");
 
-cwPlayImg2.className = "casino-war-img";
+cwPlayerImg2.className = "casino-war-img";
 
 //---------------------------------------------------------------
 
@@ -712,4 +714,8 @@ cwStartGameBtn.addEventListener("click", () => {
   console.log(firstDealerCard.name);
 
   warGameDeck.splice(0, 1);
+
+  cwPlayerImg.src = firstPlayerCard.frontImg;
+
+  cwPlayerDiv.appendChild(cwPlayerImg);
 });
