@@ -591,7 +591,7 @@ cwDealerImg.className = "casino-war-img";
 const cwDealerDiv2 = document.getElementById("casino-war-dealer-div-2");
 
 const cwDealerImg2 = document.createElement("casino-war-img");
-cwDealerImg.className = "casino-war-img-2";
+cwDealerImg.className = "casino-war-img";
 
 // cwGamePlayDiv elements
 
@@ -601,9 +601,23 @@ const cwGamePlayDiv = document.getElementById("casino-war-gameplay-div");
 
 const cwResultDiv = document.getElementById("casino-war-result-div");
 
+const cwResultHeader = document.createElement("h2");
+cwResultHeader.id = "cw-result-header";
+
 // cwPlayerDiv elements
 
 const cwPlayerDiv = document.getElementById("casino-war-player-div");
+
+const cwPlayerImg = document.createElement("img");
+cwPlayerImg.className = "casino-war-img";
+
+// cwPlayerDiv2 elements
+
+const cwPlayerDiv2 = document.getElementById("casino-war-player-div-2");
+
+const cwPlayImg2 = document.createElement("img");
+
+cwPlayImg2.className = "casino-war-img";
 
 //---------------------------------------------------------------
 
