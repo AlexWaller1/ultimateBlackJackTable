@@ -103,7 +103,7 @@ const diamonds = [
       "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
-    name: "Ace",
+    name: "Ace of Diamonds",
     value: 14,
     frontImg:
       "https://cdnb.artstation.com/p/assets/images/images/047/155/157/large/alex-waller-ace-of-diamonds.jpg?1646895544",
@@ -210,7 +210,7 @@ const clubs = [
       "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
-    name: "Ace",
+    name: "Ace of Clubs",
     value: 14,
     frontImg:
       "https://cdna.artstation.com/p/assets/images/images/047/155/662/large/alex-waller-ace-of-clubs.jpg?1646897292",
@@ -317,7 +317,7 @@ const hearts = [
       "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
-    name: "Ace",
+    name: "Ace of Hearts",
     value: 14,
     frontImg:
       "https://cdnb.artstation.com/p/assets/images/images/047/155/847/large/alex-waller-ace-of-hearts.jpg?1646897987",
@@ -424,7 +424,7 @@ const spades = [
       "https://cdna.artstation.com/p/assets/images/images/047/152/782/large/alex-waller-cardback.jpg?1646886651"
   },
   {
-    name: "Ace",
+    name: "Ace of Spades",
     value: 14,
     frontImg:
       "https://cdnb.artstation.com/p/assets/images/images/047/154/379/large/alex-waller-ace-of-spades.jpg?1646892835",
@@ -634,7 +634,12 @@ cwResultHeader2.id = "cw-result-header-2";
 const cwResultBtn = document.createElement("button");
 cwResultBtn.className = "btn btn-dark";
 cwResultBtn.id = "cw-result-btn";
-cwResultBtn.innerHTML = "finish game";
+cwResultBtn.innerHTML = "play another hand";
+
+const cwResultBtn2 = document.createElement("button");
+cwResultBtn2.className = "btn btn-dark";
+cwResultBtn2.id = "cw-result-btn-2";
+cwResultBtn2.innerHTML = "leave the table";
 
 // cwPlayerDiv elements
 
@@ -754,6 +759,11 @@ cwStartGameBtn.addEventListener("click", () => {
 
   if (firstPlayerCard.value > firstDealerCard.value) {
     console.log("The Player Wins!");
+    cwMoneyBet = cwMoneyBet * 2;
+    cwResultHeader.innerHTML = `Congratulations! You Win $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwResultBtn);
+    cwResultDiv.appendChild(cwResultBtn2);
   }
 
   if (firstPlayerCard.value === firstDealerCard.value) {
@@ -762,5 +772,9 @@ cwStartGameBtn.addEventListener("click", () => {
 
   if (firstDealerCard.value > firstPlayerCard.value) {
     console.log("The House Wins!");
+    cwResultHeader.innerHTML = `The House Wins $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwResultBtn);
+    cwResultDiv.appendChild(cwResultBtn2);
   }
 });
