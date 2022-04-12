@@ -587,9 +587,7 @@ const cwDealerDiv = document.getElementById("casino-war-dealer-div");
 
 const cwDealerImgList = document.getElementById("cw-dealer-img-list");
 
-const cwDealerHeader = document.createElement("h2");
-cwDealerHeader.id = "cw-dealer-header";
-cwDealerHeader.innerHTML = "Dealer Hand:";
+const cwDealerDivHeader = document.getElementById("cw-dealer-div-header");
 
 const cwDealerImg = document.createElement("img");
 cwDealerImg.className = "casino-war-img";
@@ -601,6 +599,8 @@ cwDealerImg.width = 150;
 const cwDealerDiv2 = document.getElementById("casino-war-dealer-div-2");
 
 const cwDealerImgList2 = document.getElementById("cw-dealer-img-list-2");
+
+const cwDealerDiv2Header = document.getElementById("cw-dealer-div-2-header");
 
 const cwDealerImg2 = document.createElement("img");
 cwDealerImg2.className = "casino-war-img";
@@ -642,9 +642,7 @@ const cwPlayerDiv = document.getElementById("casino-war-player-div");
 
 const cwPlayerImgList = document.getElementById("cw-player-img-list");
 
-const cwPlayerHeader = document.createElement("h2");
-cwPlayerHeader.id = "cw-player-header";
-cwPlayerHeader.innerHTML = "Player Hand:";
+const cwPlayerDivHeader = document.getElementById("cw-player-div-header");
 
 const cwPlayerImg = document.createElement("img");
 cwPlayerImg.className = "casino-war-img";
@@ -656,6 +654,8 @@ cwPlayerImg.width = 150;
 const cwPlayerDiv2 = document.getElementById("casino-war-player-div-2");
 
 const cwPlayerImgList2 = document.getElementById("cw-player-img-list-2");
+
+const cwPlayerDivHeader2 = document.getElementById("cw-player-div-header-2");
 
 const cwPlayerImg2 = document.createElement("img");
 cwPlayerImg2.className = "casino-war-img";
@@ -734,6 +734,8 @@ cwStartGameBtn.addEventListener("click", () => {
 
   cwPlayerImg.src = firstPlayerCard.frontImg;
 
+  cwPlayerDivHeader.innerHTML = `Player Card: ${firstPlayerCard.name}`;
+
   cwPlayerImgList.appendChild(cwPlayerImg);
 
   //-------------------------------------------
@@ -745,6 +747,8 @@ cwStartGameBtn.addEventListener("click", () => {
   warGameDeck.splice(0, 1);
 
   cwDealerImg2.src = firstDealerCard.frontImg;
+
+  cwDealerDiv2Header.innerHTML = `Dealer Card: ${firstDealerCard.name}`;
 
   cwDealerImgList2.appendChild(cwDealerImg2);
 
