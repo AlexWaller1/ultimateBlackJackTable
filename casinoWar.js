@@ -490,7 +490,7 @@ function shuffleWarDeck(array) {
 
 let warGameDeck = shuffleWarDeck(wholeDeck);
 
-const newDeck = warGameDeck;
+const newDeck = warGameDeck.slice(0, warGameDeck.length);
 
 console.log(warGameDeck);
 
@@ -909,4 +909,6 @@ cwResultDivStartBtn.addEventListener("click", () => {
 // eventListener for cwResultBtn2 (leave the table);
 cwResultBtn2.addEventListener("click", () => {
   console.log("leaving the table");
+  warGameDeck = shuffleWarDeck(newDeck);
+  console.log(warGameDeck);
 });
