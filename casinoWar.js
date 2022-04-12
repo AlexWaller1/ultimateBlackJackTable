@@ -655,6 +655,7 @@ cwResultDivFormInput.placeholder = "Money Bet...";
 const cwResultDivFormBtn = document.createElement("button");
 cwResultDivFormBtn.className = "btn btn-dark";
 cwResultDivFormBtn.id = "cw-result-div-form-btn";
+// cwResultDivFormBtn.type = "button";
 cwResultDivFormBtn.innerHTML = "place your bet";
 
 cwResultDivForm.appendChild(cwResultDivFormLabel);
@@ -812,4 +813,12 @@ cwStartGameBtn.addEventListener("click", () => {
 // eventListener for cwResultBtn (play another hand)
 cwResultBtn.addEventListener("click", () => {
   console.log("button clicked!");
+  cwResultDiv.removeChild(cwResultBtn);
+  cwResultDiv.removeChild(cwResultBtn2);
+  cwResultDiv.appendChild(cwResultDivForm);
+});
+
+cwResultDivFormBtn.addEventListener("click", e => {
+  e.preventDefault();
+  console.log("2 click!!");
 });
