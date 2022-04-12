@@ -833,6 +833,8 @@ cwResultDivFormBtn.addEventListener("click", e => {
   e.preventDefault();
   console.log("result form submitted");
 
+  cwResultHeader.innerHTML = "Ready for the Next Game?";
+
   if (
     cwResultDivFormInput.value.trim() == "" ||
     isNaN(parseFloat(cwResultDivFormInput.value))
@@ -856,5 +858,55 @@ cwResultDivFormBtn.addEventListener("click", e => {
 
 // eventListener for cwResultDivStartBtn
 cwResultDivStartBtn.addEventListener("click", () => {
+  cwResultDiv.removeChild(cwResultHeader);
+
   console.log("start the next game!");
+
+  cwResultDiv.removeChild(cwResultDivStartBtn);
+
+  firstPlayerCard = warGameDeck[0];
+
+  warGameDeck.splice(0, 1);
+
+  cwPlayerImg.src = firstPlayerCard.frontImg;
+
+  cwPlayerDivHeader.innerHTML = `Player Card: ${firstPlayerCard.name}`;
+
+  // -------------------------------------------
+
+  firstDealerCard = warGameDeck[0];
+
+  warGameDeck.splice(0, 1);
+
+  cwDealerImg2.src = firstDealerCard.frontImg;
+
+  cwDealerDiv2Header.innerHTML = `Dealer Card: ${firstDealerCard.name}`;
+
+  if (firstPlayerCard.value > firstDealerCard.value) {
+    console.log("the player wins!");
+    cwMoneyBet = cwMoneyBet * 2;
+    cwResultHeader.innerHTML = `The Player Wins $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwResultBtn);
+    cwResultDiv.appendChild(cwResultBtn2);
+  }
+
+  if (firstPlayerCard.value === firstDealerCard.value) {
+    console.log("it's a tie!");
+    cwResultHeader.innerHTML = "The Game is a Tie";
+    cwResultDiv.appendChild(cwResultHeader);
+  }
+
+  if (firstPlayerCard.value < firstDealerCard.value) {
+    console.log("the house wins!");
+    cwResultHeader.innerHTML = `The House Wins $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwResultBtn);
+    cwResultDiv.appendChild(cwResultBtn2);
+  }
+});
+
+// eventListener for cwResultBtn2 (leave the table);
+cwResultBtn2.addEventListener("click", () => {
+  console.log("leaving the table");
 });
