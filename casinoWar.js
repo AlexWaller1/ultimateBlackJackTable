@@ -662,6 +662,11 @@ cwResultDivFormBtn.id = "cw-result-div-form-btn";
 // cwResultDivFormBtn.type = "button";
 cwResultDivFormBtn.innerHTML = "place your bet";
 
+const cwResultDivStartBtn = document.createElement("button");
+cwResultDivStartBtn.className = "btn btn-dark";
+cwResultDivStartBtn.id = "cw-result-div-start-btn";
+cwResultDivStartBtn.innerHTML = "start next game";
+
 cwResultDivForm.appendChild(cwResultDivFormMsg);
 cwResultDivForm.appendChild(cwResultDivFormLabel);
 cwResultDivForm.appendChild(cwResultDivFormInput);
@@ -823,16 +828,33 @@ cwResultBtn.addEventListener("click", () => {
   cwResultDiv.appendChild(cwResultDivForm);
 });
 
+// eventListener for cwResultDivFormBtn
 cwResultDivFormBtn.addEventListener("click", e => {
   e.preventDefault();
   console.log("result form submitted");
 
   if (
     cwResultDivFormInput.value.trim() == "" ||
-    isNaN(parseFloat(cwMoneyBetFormInput.value))
+    isNaN(parseFloat(cwResultDivFormInput.value))
   ) {
     cwResultDivFormMsg.innerHTML = "Please Enter an Amount";
+
+    cwResultDivFormInput.value = "";
   } else {
     cwMoneyBet = parseFloat(cwResultDivFormInput.value);
+    console.log(`$${cwMoneyBet}`);
+
+    cwResultDiv.removeChild(cwResultDivForm);
+
+    cwStartGameHeader3.innerHTML = `Money Bet: $${cwMoneyBet}`;
+
+    cwResultDiv.appendChild(cwResultDivStartBtn);
+
+    cwResultDivFormInput.value = "";
   }
+});
+
+// eventListener for cwResultDivStartBtn
+cwResultDivStartBtn.addEventListener("click", () => {
+  console.log("start the next game!");
 });
