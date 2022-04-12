@@ -644,6 +644,10 @@ cwResultBtn2.innerHTML = "leave the table";
 const cwResultDivForm = document.createElement("form");
 cwResultDivForm.id = "cw-result-div-form";
 
+const cwResultDivFormMsg = document.createElement("div");
+cwResultDivFormMsg.className = "msg";
+cwResultDivFormMsg.id = "cw-result-div-form-msg";
+
 const cwResultDivFormLabel = document.createElement("label");
 cwResultDivFormLabel.id = "cw-result-div-form-label";
 cwResultDivFormLabel.innerHTML = "Money Bet:";
@@ -658,6 +662,7 @@ cwResultDivFormBtn.id = "cw-result-div-form-btn";
 // cwResultDivFormBtn.type = "button";
 cwResultDivFormBtn.innerHTML = "place your bet";
 
+cwResultDivForm.appendChild(cwResultDivFormMsg);
 cwResultDivForm.appendChild(cwResultDivFormLabel);
 cwResultDivForm.appendChild(cwResultDivFormInput);
 cwResultDivForm.appendChild(cwResultDivFormBtn);
@@ -820,5 +825,14 @@ cwResultBtn.addEventListener("click", () => {
 
 cwResultDivFormBtn.addEventListener("click", e => {
   e.preventDefault();
-  console.log("2 click!!");
+  console.log("result form submitted");
+
+  if (
+    cwResultDivFormInput.value.trim() == "" ||
+    isNaN(parseFloat(cwMoneyBetFormInput.value))
+  ) {
+    cwResultDivFormMsg.innerHTML = "Please Enter an Amount";
+  } else {
+    cwMoneyBet = parseFloat(cwResultDivFormInput.value);
+  }
 });

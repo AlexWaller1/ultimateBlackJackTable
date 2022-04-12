@@ -42,6 +42,11 @@ body {
   font-size: larger;
 }
 
+#cw-result-div-form-msg {
+  margin-bottom: 10px;
+  font-size: larger;
+}
+
 #casino-war-start-game-div {
   text-align: center;
 }
