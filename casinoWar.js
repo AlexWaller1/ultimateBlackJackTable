@@ -585,6 +585,12 @@ cwStartGameHeader3.id = "cw-start-game-header-3";
 
 const cwDealerDiv = document.getElementById("casino-war-dealer-div");
 
+const cwDealerImgList = document.getElementById("cw-dealer-img-list");
+
+const cwDealerHeader = document.createElement("h2");
+cwDealerHeader.id = "cw-dealer-header";
+cwDealerHeader.innerHTML = "Dealer Hand:";
+
 const cwDealerImg = document.createElement("img");
 cwDealerImg.className = "casino-war-img";
 cwDealerImg.height = 210;
@@ -594,8 +600,12 @@ cwDealerImg.width = 150;
 
 const cwDealerDiv2 = document.getElementById("casino-war-dealer-div-2");
 
-const cwDealerImg2 = document.createElement("casino-war-img");
-cwDealerImg.className = "casino-war-img";
+const cwDealerImgList2 = document.getElementById("cw-dealer-img-list-2");
+
+const cwDealerImg2 = document.createElement("img");
+cwDealerImg2.className = "casino-war-img";
+cwDealerImg2.height = 210;
+cwDealerImg.width = 150;
 
 // cwGamePlayDiv elements
 
@@ -630,16 +640,27 @@ cwResultBtn.innerHTML = "finish game";
 
 const cwPlayerDiv = document.getElementById("casino-war-player-div");
 
+const cwPlayerImgList = document.getElementById("cw-player-img-list");
+
+const cwPlayerHeader = document.createElement("h2");
+cwPlayerHeader.id = "cw-player-header";
+cwPlayerHeader.innerHTML = "Player Hand:";
+
 const cwPlayerImg = document.createElement("img");
 cwPlayerImg.className = "casino-war-img";
+cwPlayerImg.height = 210;
+cwPlayerImg.width = 150;
 
 // cwPlayerDiv2 elements
 
 const cwPlayerDiv2 = document.getElementById("casino-war-player-div-2");
 
-const cwPlayerImg2 = document.createElement("img");
+const cwPlayerImgList2 = document.getElementById("cw-player-img-list-2");
 
+const cwPlayerImg2 = document.createElement("img");
 cwPlayerImg2.className = "casino-war-img";
+cwPlayerImg2.heigth = 210;
+cwPlayerImg2.width = 150;
 
 //---------------------------------------------------------------
 
@@ -703,11 +724,19 @@ cwStartGameBtn.addEventListener("click", () => {
   cwStartGameDiv.appendChild(cwStartGameHeader3);
   cwStartGameHeader3.innerHTML = `Money Bet: $${cwMoneyBet}`;
 
+  //----------------------------------------
+
   const firstPlayerCard = warGameDeck[0];
 
   console.log(firstPlayerCard.name);
 
   warGameDeck.splice(0, 1);
+
+  cwPlayerImg.src = firstPlayerCard.frontImg;
+
+  cwPlayerImgList.appendChild(cwPlayerImg);
+
+  //-------------------------------------------
 
   const firstDealerCard = warGameDeck[0];
 
@@ -715,7 +744,19 @@ cwStartGameBtn.addEventListener("click", () => {
 
   warGameDeck.splice(0, 1);
 
-  cwPlayerImg.src = firstPlayerCard.frontImg;
+  cwDealerImg2.src = firstDealerCard.frontImg;
 
-  cwPlayerDiv.appendChild(cwPlayerImg);
+  cwDealerImgList2.appendChild(cwDealerImg2);
+
+  if (firstPlayerCard.value > firstDealerCard.value) {
+    console.log("The Player Wins!");
+  }
+
+  if (firstPlayerCard.value === firstDealerCard.value) {
+    console.log("It's a Tie!");
+  }
+
+  if (firstDealerCard.value > firstPlayerCard.value) {
+    console.log("The House Wins!");
+  }
 });

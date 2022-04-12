@@ -36,3 +36,23 @@ body {
 #casino-war-start-game-div {
   text-align: center;
 }
+
+#casino-war-dealer-div {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#casino-war-dealer-div-2 {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#casino-war-player-div {
+  text-align: center;
+  margin-top: 50px;
+}
+
+#casino-war-player-div-2 {
+  text-align: center;
+  margin-top: 50px;
+}
