@@ -641,6 +641,26 @@ cwResultBtn2.className = "btn btn-dark";
 cwResultBtn2.id = "cw-result-btn-2";
 cwResultBtn2.innerHTML = "leave the table";
 
+const cwResultDivForm = document.createElement("form");
+cwResultDivForm.id = "cw-result-div-form";
+
+const cwResultDivFormLabel = document.createElement("label");
+cwResultDivFormLabel.id = "cw-result-div-form-label";
+cwResultDivFormLabel.innerHTML = "Money Bet:";
+
+const cwResultDivFormInput = document.createElement("input");
+cwResultDivFormInput.id = "cw-result-div-form-input";
+cwResultDivFormInput.placeholder = "Money Bet...";
+
+const cwResultDivFormBtn = document.createElement("button");
+cwResultDivFormBtn.className = "btn btn-dark";
+cwResultDivFormBtn.id = "cw-result-div-form-btn";
+cwResultDivFormBtn.innerHTML = "place your bet";
+
+cwResultDivForm.appendChild(cwResultDivFormLabel);
+cwResultDivForm.appendChild(cwResultDivFormInput);
+cwResultDivForm.appendChild(cwResultDivFormBtn);
+
 // cwPlayerDiv elements
 
 const cwPlayerDiv = document.getElementById("casino-war-player-div");
@@ -666,6 +686,10 @@ const cwPlayerImg2 = document.createElement("img");
 cwPlayerImg2.className = "casino-war-img";
 cwPlayerImg2.heigth = 210;
 cwPlayerImg2.width = 150;
+
+let firstPlayerCard = "";
+
+let firstDealerCard = "";
 
 //---------------------------------------------------------------
 
@@ -731,7 +755,7 @@ cwStartGameBtn.addEventListener("click", () => {
 
   //----------------------------------------
 
-  const firstPlayerCard = warGameDeck[0];
+  firstPlayerCard = warGameDeck[0];
 
   console.log(firstPlayerCard.name);
 
@@ -745,7 +769,7 @@ cwStartGameBtn.addEventListener("click", () => {
 
   //-------------------------------------------
 
-  const firstDealerCard = warGameDeck[0];
+  firstDealerCard = warGameDeck[0];
 
   console.log(firstDealerCard.name);
 
@@ -768,6 +792,10 @@ cwStartGameBtn.addEventListener("click", () => {
 
   if (firstPlayerCard.value === firstDealerCard.value) {
     console.log("It's a Tie!");
+    cwResultHeader.innerHTML = "The Hand is a Tie";
+    cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwWarBtn);
+    cwResultDiv.appendChild(cwSurrenderBtn);
   }
 
   if (firstDealerCard.value > firstPlayerCard.value) {
@@ -777,4 +805,11 @@ cwStartGameBtn.addEventListener("click", () => {
     cwResultDiv.appendChild(cwResultBtn);
     cwResultDiv.appendChild(cwResultBtn2);
   }
+});
+//-----------------------------------------------------
+//-------------------------------------------------
+
+// eventListener for cwResultBtn (play another hand)
+cwResultBtn.addEventListener("click", () => {
+  console.log("button clicked!");
 });

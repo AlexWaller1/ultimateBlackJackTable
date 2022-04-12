@@ -28,6 +28,15 @@ body {
   margin-right: 10px;
 }
 
+#cw-result-div-form-label {
+  margin-right: 10px;
+  font-size: larger;
+}
+
+#cw-result-div-form-input {
+  margin-right: 10px;
+}
+
 #cw-money-bet-msg {
   margin-bottom: 10px;
   font-size: larger;
@@ -62,5 +71,9 @@ body {
 }
 
 #cw-result-btn {
+  margin-right: 20px;
+}
+
+#cw-war-btn {
   margin-right: 20px;
 }
