@@ -911,4 +911,20 @@ cwResultBtn2.addEventListener("click", () => {
   console.log("leaving the table");
   warGameDeck = shuffleWarDeck(newDeck);
   console.log(warGameDeck);
+
+  cwResultDiv.removeChild(cwResultHeader);
+  cwResultDiv.removeChild(cwResultBtn);
+  cwResultDiv.removeChild(cwResultBtn2);
+
+  cwStartGameDiv.removeChild(cwStartGameHeader2);
+  cwStartGameDiv.removeChild(cwStartGameHeader3);
+
+  cwPlayerDiv.removeChild(cwPlayerDivHeader);
+  cwPlayerImgList.removeChild(cwPlayerImg);
+
+  cwDealerDiv2.removeChild(cwDealerDiv2Header);
+  cwDealerImgList2.removeChild(cwDealerImg2);
+
+  cwStartDiv.appendChild(cwStartHeader);
+  cwStartDiv.appendChild(cwStartBtn);
 });
