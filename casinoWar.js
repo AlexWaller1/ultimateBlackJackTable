@@ -488,7 +488,7 @@ function shuffleWarDeck(array) {
   return array;
 }
 
-let warGameDeck = shuffleWarDeck(wholeDeck);
+let warGameDeck = [...shuffleWarDeck(wholeDeck)];
 
 const newDeck = warGameDeck.slice(0, warGameDeck.length);
 
@@ -895,6 +895,8 @@ cwResultDivStartBtn.addEventListener("click", () => {
     console.log("it's a tie!");
     cwResultHeader.innerHTML = "The Game is a Tie";
     cwResultDiv.appendChild(cwResultHeader);
+    cwResultDiv.appendChild(cwWarBtn);
+    cwResultDiv.appendChild(cwSurrenderBtn);
   }
 
   if (firstPlayerCard.value < firstDealerCard.value) {
@@ -909,7 +911,7 @@ cwResultDivStartBtn.addEventListener("click", () => {
 // eventListener for cwResultBtn2 (leave the table);
 cwResultBtn2.addEventListener("click", () => {
   console.log("leaving the table");
-  warGameDeck = shuffleWarDeck(newDeck);
+  warGameDeck = [...shuffleWarDeck(wholeDeck)];
   console.log(warGameDeck);
 
   cwResultDiv.removeChild(cwResultHeader);
@@ -919,10 +921,10 @@ cwResultBtn2.addEventListener("click", () => {
   cwStartGameDiv.removeChild(cwStartGameHeader2);
   cwStartGameDiv.removeChild(cwStartGameHeader3);
 
-  cwPlayerDiv.removeChild(cwPlayerDivHeader);
+  cwPlayerDivHeader.innerHTML = "";
   cwPlayerImgList.removeChild(cwPlayerImg);
 
-  cwDealerDiv2.removeChild(cwDealerDiv2Header);
+  cwDealerDiv2Header.innerHTML = "";
   cwDealerImgList2.removeChild(cwDealerImg2);
 
   cwStartDiv.appendChild(cwStartHeader);
