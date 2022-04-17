@@ -621,6 +621,11 @@ cwSurrenderBtn.className = "btn btn-dark";
 cwSurrenderBtn.id = "cw-surrender-btn";
 cwSurrenderBtn.innerHTML = "Surrender the Hand";
 
+const cwDealNextCardBtn = document.createElement("button");
+cwDealNextCardBtn.className = "btn btn-dark";
+cwDealNextCardBtn.id = "cw-deal-next-card-btn";
+cwDealNextCardBtn.innerHTML = "Deal Next Card";
+
 // cwResultDiv elements
 
 const cwResultDiv = document.getElementById("casino-war-result-div");
