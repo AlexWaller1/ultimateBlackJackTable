@@ -908,6 +908,16 @@ cwResultDivStartBtn.addEventListener("click", () => {
   }
 });
 
+// eventListener for cwWarBtn
+cwWarBtn.addEventListener("click", () => {
+  console.log("war button clicked!");
+});
+
+// eventListener for cwSurrenderBtn
+cwSurrenderBtn.addEventListener("click", () => {
+  console.log("surrender button clicked!");
+});
+
 // eventListener for cwResultBtn2 (leave the table);
 cwResultBtn2.addEventListener("click", () => {
   console.log("leaving the table");
