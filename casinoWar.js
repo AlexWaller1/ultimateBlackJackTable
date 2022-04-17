@@ -626,6 +626,12 @@ cwDealNextCardBtn.className = "btn btn-dark";
 cwDealNextCardBtn.id = "cw-deal-next-card-btn";
 cwDealNextCardBtn.innerHTML = "Deal Next Card";
 
+const cwDealNextCardImg = document.createElement("img");
+cwDealNextCardImg.id = "cw-deal-next-card-img";
+
+const cwDealNextCardImg2 = document.createElement("img");
+cwDealNextCardImg2.id = "cw-deal-next-card-img";
+
 // cwResultDiv elements
 
 const cwResultDiv = document.getElementById("casino-war-result-div");
@@ -947,14 +953,20 @@ cwWarBtn.addEventListener("click", () => {
   }
 
   // removing, augmenting, and appending elements
-  cwResultHeader.innerHTML = "deal the next card";
+  cwResultHeader.innerHTML = "Deal the Next Card";
   cwResultDiv.removeChild(cwWarBtn);
   cwResultDiv.removeChild(cwSurrenderBtn);
+  cwResultDiv.appendChild(cwDealNextCardBtn);
 });
 
 // eventListener for cwSurrenderBtn
 cwSurrenderBtn.addEventListener("click", () => {
   console.log("surrender button clicked!");
+});
+
+// eventListener for cwDealNextCardBtn
+cwDealNextCardBtn.addEventListener("click", () => {
+  console.log("next card dealt");
 });
 
 // eventListener for cwResultBtn2 (leave the table);
