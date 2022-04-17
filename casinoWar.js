@@ -695,7 +695,7 @@ const cwPlayerDivHeader2 = document.getElementById("cw-player-div-header-2");
 
 const cwPlayerImg2 = document.createElement("img");
 cwPlayerImg2.className = "casino-war-img";
-cwPlayerImg2.heigth = 210;
+cwPlayerImg2.height = 210;
 cwPlayerImg2.width = 150;
 
 let firstPlayerCard = "";
@@ -908,9 +908,43 @@ cwResultDivStartBtn.addEventListener("click", () => {
   }
 });
 
+// height: 210 width: 150
+console.log("back to this line");
 // eventListener for cwWarBtn
 cwWarBtn.addEventListener("click", () => {
   console.log("war button clicked!");
+
+  // player must double bet to go to war
+  cwMoneyBet = cwMoneyBet * 2;
+
+  // dealing player cards
+  for (let i = 0; i < 3; i++) {
+    if (i < 3) {
+      let cwBackCardImg = document.createElement("img");
+      cwBackCardImg.src = warGameDeck[0].backImg;
+      cwBackCardImg.height = 210;
+      cwBackCardImg.width = 150;
+      cwBackCardImg.className = "cw-back-card-img";
+      cwPlayerImgList2.appendChild(cwBackCardImg);
+      warGameDeck.splice(0, 1);
+    }
+  }
+
+  // dealing dealer cards
+  for (let j = 0; j < 3; j++) {
+    let cwBackCardImg3 = document.createElement("img");
+    cwBackCardImg3.src = warGameDeck[0].backImg;
+    cwBackCardImg3.height = 210;
+    cwBackCardImg3.width = 150;
+    cwBackCardImg3.className = "cw-back-card-img-3";
+    cwDealerImgList.appendChild(cwBackCardImg3);
+    warGameDeck.splice(0, 1);
+  }
+
+  // removing, augmenting, and appending elements
+  cwResultHeader.innerHTML = "deal the next card";
+  cwResultDiv.removeChild(cwWarBtn);
+  cwResultDiv.removeChild(cwSurrenderBtn);
 });
 
 // eventListener for cwSurrenderBtn
