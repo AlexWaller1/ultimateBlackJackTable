@@ -636,6 +636,11 @@ cwDealNextCardImg2.id = "cw-deal-next-card-img-2";
 cwDealNextCardImg2.height = 210;
 cwDealNextCardImg2.width = 150;
 
+const cwClearCardsBtn = document.createElement("button");
+cwClearCardsBtn.id = "cw-clear-cards-btn";
+cwClearCardsBtn.className = "btn btn-dark";
+cwClearCardsBtn.innerHTML = "Clear The Table";
+
 // cwResultDiv elements
 
 const cwResultDiv = document.getElementById("casino-war-result-div");
@@ -998,10 +1003,27 @@ cwDealNextCardBtn.addEventListener("click", () => {
 
   if (cwNewPlayerValue > cwNewDealerValue) {
     cwMoneyBet = cwMoneyBet * 0.75;
-    cwResultHeader.inner = `The Player Wins ${cwMoneyBet}`;
+    cwResultHeader.innerHTML = `The Player Wins $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwClearCardsBtn);
+    cwResultDiv.removeChild(cwDealNextCardBtn);
     // cwPlayerImgList2.removeChild(cwBackCardImg);
     // cwDealerImgList.removeChild(cwBackCardImg3);
   }
+
+  if (cwNewPlayerValue < cwNewDealerValue) {
+    cwResultHeader.innerHTML = `The House Wins $${cwMoneyBet}`;
+    cwResultDiv.appendChild(cwClearCardsBtn);
+    cwResultDiv.removeChild(cwDealNextCardBtn);
+  }
+
+  if (cwNewPlayerValue == cwNewDealerValue) {
+    cwResultHeader.innerHTML = "The Game is Still a Tie!";
+  }
+});
+
+// eventListener for cwClearCardsBtn
+cwClearCardsBtn.addEventListener("click", () => {
+  console.log("Clear the Table!");
 });
 
 // eventListener for cwResultBtn2 (leave the table);
