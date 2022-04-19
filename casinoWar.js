@@ -878,6 +878,10 @@ cwResultDivFormBtn.addEventListener("click", e => {
 
 // eventListener for cwResultDivStartBtn
 cwResultDivStartBtn.addEventListener("click", () => {
+  if (warGameDeck.length <= 10) {
+    warGameDeck = [...shuffleWarDeck(wholeDeck)];
+  }
+
   cwResultDiv.removeChild(cwResultHeader);
 
   console.log("start the next game!");
@@ -933,6 +937,10 @@ console.log("back to this line");
 // eventListener for cwWarBtn
 cwWarBtn.addEventListener("click", () => {
   console.log("war button clicked!");
+
+  if (warGameDeck.length <= 10) {
+    warGameDeck = [...shuffleWarDeck(wholeDeck)];
+  }
 
   // player must double bet to go to war
   cwMoneyBet = cwMoneyBet * 2;
