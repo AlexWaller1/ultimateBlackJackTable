@@ -628,9 +628,13 @@ cwDealNextCardBtn.innerHTML = "Deal Next Card";
 
 const cwDealNextCardImg = document.createElement("img");
 cwDealNextCardImg.id = "cw-deal-next-card-img";
+cwDealNextCardImg.height = 210;
+cwDealNextCardImg.width = 150;
 
 const cwDealNextCardImg2 = document.createElement("img");
-cwDealNextCardImg2.id = "cw-deal-next-card-img";
+cwDealNextCardImg2.id = "cw-deal-next-card-img-2";
+cwDealNextCardImg2.height = 210;
+cwDealNextCardImg2.width = 150;
 
 // cwResultDiv elements
 
@@ -967,6 +971,37 @@ cwSurrenderBtn.addEventListener("click", () => {
 // eventListener for cwDealNextCardBtn
 cwDealNextCardBtn.addEventListener("click", () => {
   console.log("next card dealt");
+
+  const cwNextCard1 = document.createElement("img");
+  cwNextCard1.height = 210;
+  cwNextCard1.width = 150;
+  cwNextCard1.className = "cw-next-card-1";
+
+  const cwNextCard2 = document.createElement("img");
+  cwNextCard2.height = 210;
+  cwNextCard2.width = 150;
+  cwNextCard2.className = "cw-next-card-2";
+
+  cwNextCard1.src = warGameDeck[0].frontImg;
+  cwPlayerImgList.appendChild(cwNextCard1);
+  const cwNewPlayerValue = warGameDeck[0].value;
+  cwPlayerDivHeader.innerHTML = `Player Card: ${warGameDeck[0].name}`;
+
+  warGameDeck.splice(0, 1);
+
+  cwNextCard2.src = warGameDeck[0].frontImg;
+  cwDealerImgList2.appendChild(cwNextCard2);
+  const cwNewDealerValue = warGameDeck[0].value;
+  cwDealerDiv2Header.innerHTML = `Dealer Card: ${warGameDeck[0].name}`;
+
+  warGameDeck.splice(0, 1);
+
+  if (cwNewPlayerValue > cwNewDealerValue) {
+    cwMoneyBet = cwMoneyBet * 0.75;
+    cwResultHeader.inner = `The Player Wins ${cwMoneyBet}`;
+    // cwPlayerImgList2.removeChild(cwBackCardImg);
+    // cwDealerImgList.removeChild(cwBackCardImg3);
+  }
 });
 
 // eventListener for cwResultBtn2 (leave the table);
