@@ -1006,8 +1006,6 @@ cwDealNextCardBtn.addEventListener("click", () => {
     cwResultHeader.innerHTML = `The Player Wins $${cwMoneyBet}`;
     cwResultDiv.appendChild(cwClearCardsBtn);
     cwResultDiv.removeChild(cwDealNextCardBtn);
-    // cwPlayerImgList2.removeChild(cwBackCardImg);
-    // cwDealerImgList.removeChild(cwBackCardImg3);
   }
 
   if (cwNewPlayerValue < cwNewDealerValue) {
@@ -1021,10 +1019,30 @@ cwDealNextCardBtn.addEventListener("click", () => {
   }
 });
 
+//-------------------------------------------------------
+//-----------------------------------------------------
+
 // eventListener for cwClearCardsBtn
 cwClearCardsBtn.addEventListener("click", () => {
   console.log("Clear the Table!");
+  cwPlayerImgList2.innerHTML = "";
+  cwDealerImgList.innerHTML = "";
+
+  cwPlayerImgList.removeChild(cwPlayerImg);
+  cwDealerImgList2.removeChild(cwDealerImg2);
+
+  cwPlayerImgList.innerHTML = "";
+  cwDealerImgList2.innerHTML = "";
+
+  cwPlayerImgList.appendChild(cwPlayerImg);
+  cwDealerImgList2.appendChild(cwDealerImg2);
+
+  cwResultDiv.removeChild(cwClearCardsBtn);
+  cwResultDiv.appendChild(cwResultBtn);
+  cwResultDiv.appendChild(cwResultBtn2);
 });
+//-----------------------------------------------------
+//--------------------------------------------------
 
 // eventListener for cwResultBtn2 (leave the table);
 cwResultBtn2.addEventListener("click", () => {
